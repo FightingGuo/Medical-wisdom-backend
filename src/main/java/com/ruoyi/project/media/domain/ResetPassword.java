@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 /**
  * @Date 2023/1/17 /11:53
  * @Author guohc
- * @Description  批量重置用户密码
+ * @Description  批量重置用户密码  （实体接收前端传回的id）
  */
 @Data
 public class ResetPassword {

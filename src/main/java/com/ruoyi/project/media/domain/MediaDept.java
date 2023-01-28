@@ -6,6 +6,12 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @Date 2023/1/11 /8:58
+ * @Author guohc
+ * @Description 医疗系统 部门表(科室表)
+ */
+@Data
 public class MediaDept extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
@@ -27,73 +33,4 @@ public class MediaDept extends BaseEntity {
     private String status;
     @Excel(name = "排序码",cellType = Excel.ColumnType.NUMERIC)
     private Integer deptSort;
-
-    public Integer getDeptSort() {
-        return deptSort;
-    }
-
-    public void setDeptSort(Integer deptSort) {
-        this.deptSort = deptSort;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Long getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
-    }
-
-    public String getDeptName() {
-        return deptName;
-    }
-
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
-
-    public String getDeptCode() {
-        return deptCode;
-    }
-
-    public void setDeptCode(String deptCode) {
-        this.deptCode = deptCode;
-    }
-
-    public Long getDeptNum() {
-        return deptNum;
-    }
-
-    public void setDeptNum(Long deptNum) {
-        this.deptNum = deptNum;
-    }
-
-    public String getDeptLeader() {
-        return deptLeader;
-    }
-
-    public void setDeptLeader(String deptLeader) {
-        this.deptLeader = deptLeader;
-    }
-
-    public String getDeptPhone() {
-        return deptPhone;
-    }
-
-    public void setDeptPhone(String deptPhone) {
-        this.deptPhone = deptPhone;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 }
