@@ -74,9 +74,9 @@ public class MediaRoleController extends BaseController {
     @Log(title = "角色管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody MediaRole role) {
-        if (UserConstants.NOT_UNIQUE.equals(mediaRoleService.checkRoleNameUnique(role.getRoleName()))) {
+        if (null != mediaRoleService.checkRoleNameUnique(role.getRoleName())) {
             return AjaxResult.error("新增角色'" + role.getRoleName() + "'失败，角色名称已存在");
-        } else if (UserConstants.NOT_UNIQUE.equals(mediaRoleService.checkRoleAuthUnique(role.getRoleAuth()))) {
+        } else if (null !=mediaRoleService.checkRoleAuthUnique(role.getRoleAuth())) {
             return AjaxResult.error("新增角色'" + role.getRoleName() + "'失败，角色权限已存在");
         }
         role.setCreateBy(SecurityUtils.getUsername());

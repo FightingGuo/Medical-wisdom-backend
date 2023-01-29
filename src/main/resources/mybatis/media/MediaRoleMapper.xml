@@ -22,8 +22,18 @@
 
 
     <sql id="selectRole">
-        select r.role_id, r.role_name, r.role_auth, r.role_sort, r.status, r.del_flag, r.remark, r.create_by, r.create_time, r.update_by,
-               r.update_time from media_role r
+        select r.role_id,
+               r.role_name,
+               r.role_auth,
+               r.role_sort,
+               r.status,
+               r.del_flag,
+               r.remark,
+               r.create_by,
+               r.create_time,
+               r.update_by,
+               r.update_time
+        from media_role r
     </sql>
 
 
@@ -47,7 +57,7 @@
         </if>
         <!-- 数据范围过滤 -->
         ${params.dataScope}
-        order by r.role_sort
+        order by r.role_id
     </select>
 
     <select id="selectRoleById" parameterType="Long" resultMap="MediaRoleResult">
@@ -87,7 +97,6 @@
 
     <insert id="insertRole" parameterType="MediaRole">
         insert into media_role(
-        <if test="roleId != null and roleId != 0">role_id,</if>
         <if test="roleName != null and roleName != ''">role_name,</if>
         <if test="roleAuth != null and roleAuth != ''">role_auth,</if>
         <if test="roleSort != null and roleSort != 0">role_sort,</if>
@@ -97,7 +106,6 @@
         create_time
         )
         values (
-        <if test="roleId != null and roleId != 0">#{roleId},</if>
         <if test="roleName != null and roleName != ''">#{roleName},</if>
         <if test="roleAuth != null and roleAuth != ''">#{roleAuth},</if>
         <if test="roleSort != null and roleSort != 0">#{roleSort},</if>
@@ -110,7 +118,9 @@
 
 
     <delete id="deleteRoleById" parameterType="Long">
-        delete from media_role where role_id = #{roleId}
+        update media_role
+        set del_flag = '2'
+        where role_id = #{roleId}
     </delete>
 
     <delete id="deleteRoleByIds" parameterType="Long">

@@ -5,46 +5,60 @@
 <mapper namespace="com.ruoyi.project.media.mapper.MediaUserMapper">
 
     <resultMap type="MediaUser" id="MediaUserResult">
-        <id     property="userId"       column="user_id"      />
-        <result property="userName"     column="user_name"    />
-        <result property="deptId"       column="dept_id"      />
-        <result property="phoneNumber"  column="phonenumber"  />
-        <result property="grade"        column="grade"        />
-        <result property="background"   column="background"   />
-        <result property="delFlag"      column="del_flag"     />
-        <result property="sex"          column="sex"          />
-        <result property="age"          column="age"          />
-        <result property="password"     column="password"     />
-        <result property="scheduling"   column="scheduling"   />
-        <result property="status"       column="status"       />
-        <result property="createBy"     column="create_by"    />
-        <result property="createTime"   column="create_time"  />
-        <result property="updateBy"     column="update_by"    />
-        <result property="updateTime"   column="update_time"  />
-        <result property="remark"       column="remark"       />
-        <result property="deptName"     column="dept_name"    />
-<!--        <association property="dept"    column="dept_id" javaType="MediaDept" resultMap="MediaDeptResult" />-->
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="phoneNumber" column="phonenumber"/>
+        <result property="grade" column="grade"/>
+        <result property="background" column="background"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="password" column="password"/>
+        <result property="scheduling" column="scheduling"/>
+        <result property="status" column="status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+        <result property="deptName" column="dept_name"/>
+        <!--        <association property="dept"    column="dept_id" javaType="MediaDept" resultMap="MediaDeptResult" />-->
     </resultMap>
 
-<!--    <resultMap id="MediaDeptResult" type="MediaDept">-->
-<!--        <id property="deptId"           column="dept_id"/>-->
-<!--        <result property="deptId"     column="dept_id"/>-->
-<!--        <result property="deptCode"     column="dept_code"/>-->
-<!--        <result property="deptNum"      column="dept_num"/>-->
-<!--        <result property="deptLeader"   column="dept_leader"/>-->
-<!--        <result property="deptPhone"    column="dept_phone"/>-->
-<!--    </resultMap>-->
+    <!--    <resultMap id="MediaDeptResult" type="MediaDept">-->
+    <!--        <id property="deptId"           column="dept_id"/>-->
+    <!--        <result property="deptId"     column="dept_id"/>-->
+    <!--        <result property="deptCode"     column="dept_code"/>-->
+    <!--        <result property="deptNum"      column="dept_num"/>-->
+    <!--        <result property="deptLeader"   column="dept_leader"/>-->
+    <!--        <result property="deptPhone"    column="dept_phone"/>-->
+    <!--    </resultMap>-->
 
     <sql id="selectUser">
-        select u.user_id, u.user_name, u.dept_id, u.password, d.dept_name, u.phonenumber, u.sex, u.age, u.scheduling, u.grade, u.background
-             , u.status, u.create_by, u.create_time, u.remark
+        select u.user_id
+             , u.user_name
+             , u.dept_id
+             , u.password
+             , d.dept_name
+             , u.phonenumber
+             , u.sex
+             , u.age
+             , u.scheduling
+             , u.grade
+             , u.background
+             , u.status
+             , u.create_by
+             , u.create_time
+             , u.remark
         from media_user u
-        left join media_dept d on u.dept_id = d.dept_id
+                 left join media_dept d on u.dept_id = d.dept_id
     </sql>
 
 
     <select id="selectUserList" parameterType="MediaUser" resultMap="MediaUserResult">
-        select u.user_id, u.user_name, u.dept_id, u.dept_id, d.dept_name, u.phonenumber, u.sex, u.age, u.scheduling, u.grade, u.background
+        select u.user_id, u.user_name, u.dept_id, u.dept_id, d.dept_name, u.phonenumber, u.sex, u.age, u.scheduling,
+        u.grade, u.background
         , u.status, u.create_by, u.create_time, u.remark
         from media_user u
         left join media_dept d on u.dept_id = d.dept_id
@@ -137,19 +151,27 @@
 
 
     <select id="checkUserNameUnique" parameterType="String" resultType="int">
-        select count(1) from media_user where user_name = #{userName} limit 1
+        select count(1)
+        from media_user
+        where user_name = #{userName} limit 1
     </select>
 
     <select id="checkPhoneUnique" parameterType="String" resultMap="MediaUserResult">
-        select user_id, phonenumber from media_user where phonenumber = #{phonenumber} limit 1
+        select user_id, phonenumber
+        from media_user
+        where phonenumber = #{phonenumber} limit 1
     </select>
 
     <update id="updateUserStatus" parameterType="MediaUser">
-        update media_user set status = #{status} where user_id = #{userId}
+        update media_user
+        set status = #{status}
+        where user_id = #{userId}
     </update>
 
     <update id="updateUserAvatar" parameterType="MediaUser">
-        update media_user set avatar = #{avatar} where user_name = #{userName}
+        update media_user
+        set avatar = #{avatar}
+        where user_name = #{userName}
     </update>
 
     <update id="resetUserPwd">
@@ -163,7 +185,9 @@
     </update>
 
     <delete id="deleteUserById" parameterType="Long">
-        delete from media_user where user_id = #{userId}
+        delete
+        from media_user
+        where user_id = #{userId}
     </delete>
 
     <delete id="deleteUserByIds" parameterType="Long">

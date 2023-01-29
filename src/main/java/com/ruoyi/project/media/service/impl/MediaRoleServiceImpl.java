@@ -110,7 +110,7 @@ public class MediaRoleServiceImpl implements IMediaRoleService {
      */
     @Override
     public int updateRole(MediaRole role) {
-        return updateRole(role);
+        return mediaRoleMapper.updateRole(role);
     }
 
     /**
@@ -121,7 +121,7 @@ public class MediaRoleServiceImpl implements IMediaRoleService {
      */
     @Override
     public int insertRole(MediaRole role) {
-        return insertRole(role);
+        return mediaRoleMapper.insertRole(role);
     }
 
     /**
@@ -132,7 +132,7 @@ public class MediaRoleServiceImpl implements IMediaRoleService {
      */
     @Override
     public int deleteRoleById(Long roleId) {
-        return deleteRoleById(roleId);
+        return mediaRoleMapper.deleteRoleById(roleId);
     }
 
     /**
@@ -143,6 +143,6 @@ public class MediaRoleServiceImpl implements IMediaRoleService {
      */
     @Override
     public int deleteRoleByIds(Long[] roleIds) {
-        return deleteRoleByIds(roleIds);
+        return mediaRoleMapper.deleteRoleByIds(roleIds);
     }
 }

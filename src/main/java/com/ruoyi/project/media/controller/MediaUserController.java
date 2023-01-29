@@ -12,20 +12,17 @@ import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.media.domain.MediaUser;
 import com.ruoyi.project.media.domain.ResetPassword;
 import com.ruoyi.project.media.service.IMediaUserService;
-import com.ruoyi.project.system.domain.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @Date 2023/1/10 /16:06
  * @Author guohc
- * @Description
+ * @Description  用户模块
  */
 
 @RestController
