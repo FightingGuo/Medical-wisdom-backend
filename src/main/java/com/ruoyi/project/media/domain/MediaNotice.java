@@ -3,9 +3,7 @@ package com.ruoyi.project.media.domain;
 import com.ruoyi.framework.aspectj.lang.annotation.Excel;
 import com.ruoyi.framework.web.domain.BaseEntity;
 import lombok.Data;
-import org.apache.poi.hpsf.Decimal;
 
-import java.math.BigDecimal;
 
 /**
  * @Date 2023/1/29 /10:28
