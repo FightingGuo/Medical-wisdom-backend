@@ -11,7 +11,7 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.media.domain.MediaUser;
 import com.ruoyi.project.media.domain.ResetPassword;
-import com.ruoyi.project.media.service.IMediaUserService;
+import com.ruoyi.project.media.service.MediaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -30,7 +30,7 @@ import java.util.List;
 public class MediaUserController extends BaseController {
 
     @Autowired
-    IMediaUserService mediaUserService;
+    MediaUserService mediaUserService;
 
     /**
      * 获取用户列表

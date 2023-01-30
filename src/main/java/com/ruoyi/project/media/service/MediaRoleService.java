@@ -9,7 +9,7 @@ import java.util.List;
  * @Author guohc
  * @Description
  */
-public interface IMediaRoleService {
+public interface MediaRoleService {
     /**
      * 根据条件分页查询角色数据
      *

@@ -5,8 +5,7 @@ import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.project.media.domain.MediaUser;
 import com.ruoyi.project.media.mapper.MediaUserMapper;
-import com.ruoyi.project.media.service.IMediaUserService;
-import com.ruoyi.project.system.domain.SysUser;
+import com.ruoyi.project.media.service.MediaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ import java.util.List;
  * @Description
  */
 @Service
-public class MediaUserServiceImpl implements IMediaUserService {
+public class MediaUserServiceImpl implements MediaUserService {
 
     @Autowired
     MediaUserMapper mediaUserMapper;

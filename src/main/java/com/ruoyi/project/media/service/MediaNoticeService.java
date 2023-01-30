@@ -9,7 +9,7 @@ import java.util.List;
  * @Author guohc
  * @Description
  */
-public interface IMediaNoticeService {
+public interface MediaNoticeService {
 
     /**
      * 查询公告信息

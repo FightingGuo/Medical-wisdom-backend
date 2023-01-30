@@ -9,7 +9,7 @@ import java.util.List;
  * @Author guohc
  * @Description
  */
-public interface IMediaUserService {
+public interface MediaUserService {
     /**
      * 根据条件分页查询用户列表
      *

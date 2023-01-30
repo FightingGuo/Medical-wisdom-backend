@@ -5,7 +5,7 @@ import com.ruoyi.project.media.domain.MediaDept;
 
 import java.util.List;
 
-public interface IMediaDeptService {
+public interface MediaDeptService {
     List<MediaDept> selectDeptList(MediaDept mediaDept);
 
     int insertDept(MediaDept mediaDept);

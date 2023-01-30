@@ -4,7 +4,7 @@ import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.project.media.domain.MediaRole;
 import com.ruoyi.project.media.mapper.MediaRoleMapper;
-import com.ruoyi.project.media.service.IMediaRoleService;
+import com.ruoyi.project.media.service.MediaRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * @Description
  */
 @Service
-public class MediaRoleServiceImpl implements IMediaRoleService {
+public class MediaRoleServiceImpl implements MediaRoleService {
 
     @Autowired
     MediaRoleMapper mediaRoleMapper;

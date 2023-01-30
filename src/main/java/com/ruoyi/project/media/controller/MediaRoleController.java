@@ -9,7 +9,7 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.media.domain.MediaRole;
-import com.ruoyi.project.media.service.IMediaRoleService;
+import com.ruoyi.project.media.service.MediaRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -27,7 +27,7 @@ import java.util.List;
 public class MediaRoleController extends BaseController {
 
     @Autowired
-    IMediaRoleService mediaRoleService;
+    MediaRoleService mediaRoleService;
 
     /**
      * 查询角色列表
@@ -105,17 +105,6 @@ public class MediaRoleController extends BaseController {
         return AjaxResult.error("修改角色'" + role.getRoleName() + "'失败，请联系管理员");
     }
 
-//    /**
-//     * 修改保存数据权限
-//     */
-//    @PreAuthorize("@ss.hasPermi('media:role:edit')")
-//    @Log(title = "角色管理", businessType = BusinessType.UPDATE)
-//    @PutMapping("/dataScope")
-//    public AjaxResult dataScope(@RequestBody MediaRole role)
-//    {
-//        mediaRoleService.checkRoleAllowed(role);
-//        return toAjax(mediaRoleService.authDataScope(role));
-//    }
 
     /**
      * 状态修改
@@ -138,14 +127,5 @@ public class MediaRoleController extends BaseController {
     public AjaxResult remove(@PathVariable Long[] roleIds) {
         return toAjax(mediaRoleService.deleteRoleByIds(roleIds));
     }
-
-    /**
-     * 获取角色选择框列表
-     */
-//    @PreAuthorize("@ss.hasPermi('media:role:query')")
-//    @GetMapping("/optionselect")
-//    public AjaxResult optionselect() {
-//        return AjaxResult.success(mediaRoleService.selectRoleAll());
-//    }
 
 }

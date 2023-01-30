@@ -4,14 +4,14 @@ package com.ruoyi.project.media.service.impl;
 import com.ruoyi.project.media.domain.MediaDeptList;
 import com.ruoyi.project.media.domain.MediaDept;
 import com.ruoyi.project.media.mapper.MediaDeptMapper;
-import com.ruoyi.project.media.service.IMediaDeptService;
+import com.ruoyi.project.media.service.MediaDeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class MediaDeptServiceImpl implements IMediaDeptService {
+public class MediaDeptServiceImpl implements MediaDeptService {
     /**
      * 编程规范：
      * 在团队开发中，如果希望调用自己模块的表，直接直接注入自己的mapper

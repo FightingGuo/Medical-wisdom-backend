@@ -6,7 +6,7 @@ import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
-import com.ruoyi.project.media.service.IMediaNoticeService;
+import com.ruoyi.project.media.service.MediaNoticeService;
 import com.ruoyi.project.media.domain.MediaNotice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,7 +25,7 @@ import java.util.List;
 public class MediaNoticeController extends BaseController {
 
     @Autowired
-    private IMediaNoticeService mediaNoticeService;
+    private MediaNoticeService mediaNoticeService;
 
     /**
      * 获取通知公告列表

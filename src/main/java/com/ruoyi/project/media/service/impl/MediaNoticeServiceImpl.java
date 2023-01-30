@@ -2,7 +2,7 @@ package com.ruoyi.project.media.service.impl;
 
 import com.ruoyi.project.media.domain.MediaNotice;
 import com.ruoyi.project.media.mapper.MediaNoticeMapper;
-import com.ruoyi.project.media.service.IMediaNoticeService;
+import com.ruoyi.project.media.service.MediaNoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @Description
  */
 @Service
-public class MediaNoticeServiceImpl implements IMediaNoticeService {
+public class MediaNoticeServiceImpl implements MediaNoticeService {
     @Autowired
     private MediaNoticeMapper mediaNoticeMapper;
 
