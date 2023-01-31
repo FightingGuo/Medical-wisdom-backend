@@ -1,6 +1,7 @@
 package com.ruoyi.project.medicine.service.Impl;
 
 import com.ruoyi.project.medicine.domain.GenFactory;
+import com.ruoyi.project.medicine.domain.MedicineFactoryList;
 import com.ruoyi.project.medicine.mapper.GenFactoryMapper;
 import com.ruoyi.project.medicine.service.GenFactoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,5 +117,15 @@ public class GenFactoryServiceImpl implements GenFactoryService {
     @Override
     public int deleteFactoryByIds(Long[] factoryIds) {
         return genFactoryMapper.deleteFactoryByIds(factoryIds);
+    }
+
+    /**
+     * 获取厂家名称下拉列表数据
+     *
+     * @return
+     */
+    @Override
+    public List<MedicineFactoryList> getFactoryNameList() {
+        return genFactoryMapper.getFactoryNameList();
     }
 }

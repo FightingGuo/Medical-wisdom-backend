@@ -67,10 +67,9 @@ public class MediaUserController extends BaseController {
             return AjaxResult.error("新增用户'" + mediaUser.getUserName() + "'失败，手机号码已存在");
         }
 
-        //新增用户设置初始密码
-        mediaUser.setPassword("123456");
         mediaUser.setCreateBy(SecurityUtils.getUsername());
-        String s = SecurityUtils.encryptPassword(mediaUser.getPassword());
+        SecurityUtils.encryptPassword(mediaUser.getPassword());
+        mediaUser.setPassword(mediaUser.getPassword());
         //密码加密后存入库中
 //        mediaUser.setPassword(SecurityUtils.encryptPassword(mediaUser.getPassword()));
         return toAjax(mediaUserService.insertUser(mediaUser));

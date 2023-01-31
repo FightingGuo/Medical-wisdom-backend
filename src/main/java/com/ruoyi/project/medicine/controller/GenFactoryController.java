@@ -108,4 +108,13 @@ public class GenFactoryController extends BaseController {
         return toAjax(genFactoryService.deleteFactoryByIds(factoryIds));
     }
 
+    /**
+     * 获取厂家id 和 name  下拉列表数据
+     * @return
+     */
+    @GetMapping("/getFactoryList")
+    public AjaxResult getDeptList() {
+        return AjaxResult.success(genFactoryService.getFactoryNameList());
+    }
+
 }

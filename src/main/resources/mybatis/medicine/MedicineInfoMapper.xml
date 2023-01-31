@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.medicine.mapper.MedicineInfoMapper">
+
+    <resultMap id="MedicineInfoResult" type="MedicineInfo">
+        <id property="medicineId" column="medicine_id"/>
+        <result property="medicineName" column="medicine_name"/>
+        <result property="medicineCode" column="medicine_code"/>
+        <result property="factoryId" column="factory_id"/>
+        <result property="factoryName" column="factory_name"/>
+        <result property="medicineType" column="medicine_type"/>
+        <result property="prescriptionType" column="prescription_type"/>
+        <result property="unit" column="unit"/>
+        <result property="medicinePrice" column="medicine_price"/>
+        <result property="stock" column="stock"/>
+        <result property="warnValue" column="warn_value"/>
+        <result property="convertQuantity" column="convert_quantity"/>
+        <result property="status" column="status"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectMedicineInfo">
+        select i.medicine_id,
+               i.medicine_name,
+               i.medicine_code,
+               i.factory_id,
+               f.factory_name,
+               i.medicine_type,
+               i.prescription_type,
+               i.unit,
+               i.medicine_price,
+               i.stock,
+               i.warn_value,
+               i.convert_quantity,
+               i.status,
+               i.del_flag
+        from medicine_info i
+                 left join medicine_factory f on i.factory_id = f.factory_id
+    </sql>
+
+    <select id="selectMedicineInfoList" parameterType="MedicineInfo" resultMap="MedicineInfoResult">
+        <include refid="selectMedicineInfo"/>
+        where i.del_flag = '0'
+        <if test="medicineName != null and medicineName != ''">
+            AND i.medicine_name like concat('%', #{medicineName}, '%')
+        </if>
+        <if test="medicineCode != null and medicineCode != ''">
+            AND i.medicine_code = #{medicineCode}
+        </if>
+        <if test="medicineType != null and medicineType != ''">
+            AND i.medicine_type like concat('%', #{medicineType}, '%')
+        </if>
+        <if test="factoryId != null and factoryId != ''">
+            AND i.factory_id = #{factoryId}
+        </if>
+        <if test="prescriptionType != null and prescriptionType != ''">
+            AND i.prescription_type like concat('%', #{prescriptionType}, '%')
+        </if>
+        <if test="status != null and status != ''">
+            AND i.status like concat('%', #{status}, '%')
+        </if>
+        order by i.medicine_id
+    </select>
+
+    <select id="selectMedicineInfoById" parameterType="Long" resultMap="MedicineInfoResult">
+        <include refid="selectMedicineInfo"/>
+        WHERE i.del_flag = '0' and i.medicine_id = #{medicineId}
+    </select>
+
+    <update id="updateMedicineInfoStatus" parameterType="MedicineInfo">
+        update medicine_info
+        <set>
+            <if test="status != null and status != ''">status = #{status},</if>
+        </set>
+        where medicine_id = #{medicineId}
+    </update>
+
+    <select id="checkMedicineInfoNameUnique" parameterType="String" resultMap="MedicineInfoResult">
+        <include refid="selectMedicineInfo"/>
+        where i.del_flag = '0' and i.medicine_name = #{medicineName}
+    </select>
+
+    <select id="checkMedicineInfoCodeUnique" parameterType="String" resultMap="MedicineInfoResult">
+        <include refid="selectMedicineInfo"/>
+        where i.medicine_code = #{medicineCode} limit 1
+    </select>
+
+    <update id="updateMedicineInfo" parameterType="MedicineInfo">
+        update medicine_info
+        <set>
+            <if test="medicineName != null and medicineName != ''">medicine_name = #{medicineName},</if>
+            <if test="medicineCode != null and medicineCode != ''">medicine_code = #{medicineCode},</if>
+            <if test="factoryId != null and factoryId != ''">factory_id = #{factoryId},</if>
+            <if test="medicineType != null and medicineType != ''">medicine_type = #{medicineType},</if>
+            <if test="prescriptionType != null and prescriptionType != ''">prescription_type = #{prescriptionType},</if>
+            <if test="unit != null and unit != ''">unit = #{unit},</if>
+            <if test="medicinePrice != null and medicinePrice != ''">medicine_price = #{medicinePrice},</if>
+            <if test="stock != null and stock != ''">stock = #{stock},</if>
+            <if test="warnValue != null and warnValue != ''">warn_value = #{warnValue},</if>
+            <if test="convertQuantity != null and convertQuantity != ''">convert_quantity = #{convertQuantity},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where medicine_id = #{medicineId}
+    </update>
+
+    <insert id="insertMedicineInfo" parameterType="MedicineInfo">
+        insert into medicine_info(
+        <if test="medicineName != null and medicineName != ''">medicine_name,</if>
+        <if test="medicineCode != null and medicineCode != ''">medicine_code,</if>
+        <if test="factoryId != null and factoryId != 0">factory_id,</if>
+        <if test="medicineType != null and medicineType != ''">medicine_type,</if>
+        <if test="prescriptionType != null and prescriptionType != ''">prescription_type,</if>
+        <if test="unit != null and unit != ''">unit,</if>
+        <if test="medicinePrice != null and medicinePrice != ''">medicine_price,</if>
+        <if test="stock != null and stock != 0">stock,</if>
+        <if test="warnValue != null and warnValue != 0">warn_value,</if>
+        <if test="convertQuantity != null and convertQuantity != ''">convert_quantity,</if>
+        <if test="status != null and status != ''">status,</if>
+        <if test="createBy != null and createBy != ''">create_by,</if>
+        create_time
+        )
+        values (
+        <if test="factoryName != null and factoryName != ''">#{factoryName},</if>
+        <if test="factoryCode != null and factoryCode != ''">#{factoryCode},</if>
+        <if test="contact != null and contact != 0">#{contact},</if>
+        <if test="telephoneNum != null and telephoneNum != ''">#{telephoneNum},</if>
+        <if test="key != null and key != ''">#{key},</if>
+        <if test="status != null and status != ''">#{status},</if>
+        <if test="address != null and remark != ''">#{address},</if>
+        <if test="createBy != null and createBy != ''">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <delete id="deleteMedicineInfoById" parameterType="Long">
+        update medicine_info
+        set del_flag = '2'
+        where medicine_id = #{medicineId}
+    </delete>
+
+    <delete id="deleteMedicineInfoByIds" parameterType="Long">
+        update medicine_info set del_flag = '2' where medicine_id in
+        <foreach collection="array" item="medicineId" open="(" separator="," close=")">
+            #{medicineId}
+        </foreach>
+    </delete>
+
+</mapper>

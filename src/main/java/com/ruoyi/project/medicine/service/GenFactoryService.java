@@ -1,6 +1,7 @@
 package com.ruoyi.project.medicine.service;
 
 import com.ruoyi.project.medicine.domain.GenFactory;
+import com.ruoyi.project.medicine.domain.MedicineFactoryList;
 
 import java.util.List;
 
@@ -83,4 +84,11 @@ public interface GenFactoryService {
      * @return 结果
      */
     int deleteFactoryByIds(Long[] factoryIds);
+
+    /**
+     * 获取厂家名称下拉列表数据
+     *
+     * @return
+     */
+    List<MedicineFactoryList> getFactoryNameList();
 }

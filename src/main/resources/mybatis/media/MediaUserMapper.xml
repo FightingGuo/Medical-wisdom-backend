@@ -23,17 +23,7 @@
         <result property="updateTime" column="update_time"/>
         <result property="remark" column="remark"/>
         <result property="deptName" column="dept_name"/>
-        <!--        <association property="dept"    column="dept_id" javaType="MediaDept" resultMap="MediaDeptResult" />-->
     </resultMap>
-
-    <!--    <resultMap id="MediaDeptResult" type="MediaDept">-->
-    <!--        <id property="deptId"           column="dept_id"/>-->
-    <!--        <result property="deptId"     column="dept_id"/>-->
-    <!--        <result property="deptCode"     column="dept_code"/>-->
-    <!--        <result property="deptNum"      column="dept_num"/>-->
-    <!--        <result property="deptLeader"   column="dept_leader"/>-->
-    <!--        <result property="deptPhone"    column="dept_phone"/>-->
-    <!--    </resultMap>-->
 
     <sql id="selectUser">
         select u.user_id
