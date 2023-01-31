@@ -75,9 +75,7 @@
 
     <update id="updateMedicineInfoStatus" parameterType="MedicineInfo">
         update medicine_info
-        <set>
-            <if test="status != null and status != ''">status = #{status},</if>
-        </set>
+        set status = #{status}
         where medicine_id = #{medicineId}
     </update>
 
@@ -101,7 +99,7 @@
             <if test="prescriptionType != null and prescriptionType != ''">prescription_type = #{prescriptionType},</if>
             <if test="unit != null and unit != ''">unit = #{unit},</if>
             <if test="medicinePrice != null and medicinePrice != ''">medicine_price = #{medicinePrice},</if>
-            <if test="stock != null and stock != ''">stock = #{stock},</if>
+            <if test="stock != null and stock != 0">stock = #{stock},</if>
             <if test="warnValue != null and warnValue != ''">warn_value = #{warnValue},</if>
             <if test="convertQuantity != null and convertQuantity != ''">convert_quantity = #{convertQuantity},</if>
             <if test="status != null and status != ''">status = #{status},</if>
@@ -128,13 +126,17 @@
         create_time
         )
         values (
-        <if test="factoryName != null and factoryName != ''">#{factoryName},</if>
-        <if test="factoryCode != null and factoryCode != ''">#{factoryCode},</if>
-        <if test="contact != null and contact != 0">#{contact},</if>
-        <if test="telephoneNum != null and telephoneNum != ''">#{telephoneNum},</if>
-        <if test="key != null and key != ''">#{key},</if>
+        <if test="medicineName != null and medicineName != ''">#{medicineName},</if>
+        <if test="medicineCode != null and medicineCode != ''">#{medicineCode},</if>
+        <if test="factoryId != null and factoryId != 0">#{factoryId},</if>
+        <if test="medicineType != null and medicineType != ''">#{medicineType},</if>
+        <if test="prescriptionType != null and prescriptionType != ''">#{prescriptionType},</if>
+        <if test="unit != null and unit != ''">#{unit},</if>
+        <if test="medicinePrice != null and medicinePrice != 0">#{medicinePrice},</if>
+        <if test="stock != null and stock != 0">#{stock},</if>
+        <if test="warnValue != null and warnValue != 0">#{warnValue},</if>
+        <if test="convertQuantity != null and convertQuantity != 0">#{convertQuantity},</if>
         <if test="status != null and status != ''">#{status},</if>
-        <if test="address != null and remark != ''">#{address},</if>
         <if test="createBy != null and createBy != ''">#{createBy},</if>
         sysdate()
         )

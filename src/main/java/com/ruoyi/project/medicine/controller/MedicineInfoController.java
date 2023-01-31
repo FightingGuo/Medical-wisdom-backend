@@ -28,7 +28,7 @@ public class MedicineInfoController extends BaseController {
     private MedicineInfoService medicineInfoService;
 
     /**
-     * 查询厂家列表
+     * 查询药品信息列表
      *
      * @param info
      * @return
@@ -42,7 +42,7 @@ public class MedicineInfoController extends BaseController {
     }
 
     /**
-     * 根据厂家编号获取详细信息
+     * 根据药品信息编号获取详细信息
      */
     @PreAuthorize("@ss.hasPermi('medicine:info:query')")
     @GetMapping(value = "/{infoId}")
@@ -51,10 +51,10 @@ public class MedicineInfoController extends BaseController {
     }
 
     /**
-     * 新增厂家
+     * 新增药品信息
      */
     @PreAuthorize("@ss.hasPermi('medicine:info:add')")
-    @Log(title = "厂家管理", businessType = BusinessType.INSERT)
+    @Log(title = "药品信息管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody MedicineInfo info) {
         if (null != medicineInfoService.checkMedicineInfoNameUnique(info.getMedicineName())) {
@@ -67,17 +67,12 @@ public class MedicineInfoController extends BaseController {
     }
 
     /**
-     * 修改保存厂家
+     * 修改保存药品信息
      */
     @PreAuthorize("@ss.hasPermi('medicine:info:edit')")
-    @Log(title = "厂家管理", businessType = BusinessType.UPDATE)
+    @Log(title = "药品信息管理", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@Validated @RequestBody MedicineInfo info) {
-        if (null != medicineInfoService.checkMedicineInfoNameUnique(info.getMedicineName())) {
-            return AjaxResult.error("修改药品'" + info.getMedicineName() + "'失败，药品名称已存在");
-        } else if (null !=medicineInfoService.checkMedicineInfoCodeUnique(info.getMedicineCode())) {
-            return AjaxResult.error("修改药品'" + info.getMedicineCode() + "'失败，药品编码已存在");
-        }
         info.setUpdateBy(SecurityUtils.getUsername());
 
         if (medicineInfoService.updateMedicineInfo(info) > 0) {
@@ -91,7 +86,7 @@ public class MedicineInfoController extends BaseController {
      * 状态修改
      */
     @PreAuthorize("@ss.hasPermi('medicine:info:edit')")
-    @Log(title = "厂家管理", businessType = BusinessType.UPDATE)
+    @Log(title = "药品信息管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody MedicineInfo info) {
         info.setUpdateBy(SecurityUtils.getUsername());
@@ -99,10 +94,10 @@ public class MedicineInfoController extends BaseController {
     }
 
     /**
-     * 删除厂家
+     * 删除药品信息
      */
     @PreAuthorize("@ss.hasPermi('medicine:info:remove')")
-    @Log(title = "厂家管理", businessType = BusinessType.DELETE)
+    @Log(title = "药品信息管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{infoIds}")
     public AjaxResult remove(@PathVariable Long[] infoIds) {
         return toAjax(medicineInfoService.deleteMedicineInfoByIds(infoIds));

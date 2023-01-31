@@ -36,7 +36,6 @@ public class MedicineInfo extends BaseEntity {
     /**
      * 生产厂家ID
      */
-    @NotBlank
     @Excel(name = "生产厂家ID")
     private Long factoryId;
 
@@ -73,7 +72,7 @@ public class MedicineInfo extends BaseEntity {
     /**
      * 商品库存
      */
-    @Excel(name = "商品库存")
+    @Excel(name = "药品库存")
     private Long stock;
 
     /**
