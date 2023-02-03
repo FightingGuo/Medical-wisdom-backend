@@ -114,17 +114,4 @@
         set pur_status = '2'
         where pur_id = #{purId}
     </update>
-
-    <update id="submitEntryDB" parameterType="medicinePurchase">
-        update medicine_purchase
-        set pur_status = '6', pur_time = now()
-        where pur_id = #{purId}
-    </update>
-
-    <update id="AuditAccess" parameterType="medicinePurchase">
-        update medicine_purchase
-        set pur_status = '3'
-        where pur_id = #{purId}
-    </update>
-
 </mapper>

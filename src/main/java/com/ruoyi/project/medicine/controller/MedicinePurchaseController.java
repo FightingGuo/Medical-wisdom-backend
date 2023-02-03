@@ -95,40 +95,6 @@ public class MedicinePurchaseController extends BaseController {
     }
 
     /**
-     * 审核通过
-     */
-    @Log(title = "采购管理", businessType = BusinessType.UPDATE)
-    @PutMapping("/AuditAccess")
-    public AjaxResult AuditAccess(@RequestBody MedicinePurchase medicinePurchase) {
-        medicinePurchase.setUpdateBy(SecurityUtils.getUsername());
-        return AjaxResult.success(medicinePurchaseService.auditAccess(medicinePurchase));
-    }
-
-
-    /**
-     * 提交入库
-     */
-    @Log(title = "采购管理", businessType = BusinessType.UPDATE)
-    @PutMapping("/submitEntryDB")
-    public AjaxResult submitEntryDB(@RequestBody MedicinePurchase medicinePurchase) {
-        if (medicinePurchase.getPurStatus().equals("6")) {
-            return AjaxResult.error("审核已入库,请问重复提交~");
-        }
-
-        if (    medicinePurchase.getPurStatus() .equals("1")   ||
-                medicinePurchase.getPurStatus() .equals("2")  ||
-                medicinePurchase.getPurStatus() .equals("4")
-        ) {
-            return AjaxResult.error("审核未通过或未提交,请重新提交审核后重试~");
-        }
-        if (medicinePurchase.getPurStatus() .equals("5") ) {
-            return AjaxResult.error("审核已作废,请问重新提交审核~");
-        }
-        medicinePurchase.setUpdateBy(SecurityUtils.getUsername());
-        return AjaxResult.success("提交入库成功", medicinePurchaseService.submitEntryDB(medicinePurchase));
-    }
-
-    /**
      * 删除采购
      */
     @PreAuthorize("@ss.hasPermi('medicine:purchase:remove')")

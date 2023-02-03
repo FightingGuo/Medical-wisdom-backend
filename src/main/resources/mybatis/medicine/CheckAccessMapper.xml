@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.medicine.mapper.CheckAccessMapper">
+
+    <resultMap id="MedicinePurchaseResult" type="MedicinePurchase">
+        <id property="purId" column="pur_id"></id>
+        <result property="supplierId" column="supplier"/>
+        <result property="supplierName" column="supplier_name"/>
+        <result property="purTotal" column="pur_total"/>
+        <result property="purStatus" column="pur_status"/>
+        <result property="purName" column="pur_name"/>
+        <result property="purTime" column="pur_time"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+    <sql id="selectMedicinePurchase">
+        select p.pur_id,
+               p.supplier_id,
+               s.supplier_name,
+               s.address,
+               p.pur_total,
+               p.pur_status,
+               p.pur_name,
+               p.pur_time,
+               p.del_flag,
+               p.create_by,
+               p.create_time,
+               p.update_by,
+               p.update_time
+        from medicine_purchase p
+                 left join medicine_supplier s on s.supplier_id = p.supplier_id
+    </sql>
+
+
+    <select id="selectMedicinePurchaseList" parameterType="MedicinePurchase" resultMap="MedicinePurchaseResult">
+        <include refid="selectMedicinePurchase"/>
+        where p.del_flag = '0'
+        and p.pur_status in ('2','3')
+    </select>
+
+    <update id="auditAccess" parameterType="String">
+        update medicine_purchase set pur_status = '3' where pur_id in
+        <foreach collection="array" item="purId" open="(" separator="," close=")">
+            #{purId}
+        </foreach>
+    </update>
+
+    <update id="invalidCheck" parameterType="String">
+        update medicine_purchase set pur_status = '5' where pur_id in
+        <foreach collection="array" item="purId" open="(" separator="," close=")">
+            #{purId}
+        </foreach>
+    </update>
+
+    <update id="submitEntryDB" parameterType="medicinePurchase">
+        update medicine_purchase
+        set pur_status = '6', pur_time = now()
+        where pur_id = #{purId}
+    </update>
+</mapper>

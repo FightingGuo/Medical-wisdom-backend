@@ -85,28 +85,4 @@ public class MedicinePurchaseServiceImpl implements MedicinePurchaseService {
     public int submitAudit(MedicinePurchase medicinePurchase) {
         return medicinePurchaseMapper.submitAudit(medicinePurchase);
     }
-
-    /**
-     * 提交入库
-     *
-     * @param medicinePurchase
-     * @return
-     */
-    @Override
-    public int submitEntryDB(MedicinePurchase medicinePurchase) {
-        return medicinePurchaseMapper.submitEntryDB(medicinePurchase);
-    }
-
-    /**
-     * 审核通过
-     *
-     * @param medicinePurchase
-     * @return
-     */
-    @Override
-    public int auditAccess(MedicinePurchase medicinePurchase) {
-        return medicinePurchaseMapper.AuditAccess(medicinePurchase);
-    }
-
-
 }

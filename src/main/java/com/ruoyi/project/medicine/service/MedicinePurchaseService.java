@@ -59,19 +59,5 @@ public interface MedicinePurchaseService {
      */
     int submitAudit(MedicinePurchase medicinePurchase);
 
-    /**
-     * 提交入库
-     *
-     * @param medicinePurchase
-     * @return
-     */
-    int submitEntryDB(MedicinePurchase medicinePurchase);
 
-    /**
-     * 审核通过
-     *
-     * @param medicinePurchase
-     * @return
-     */
-    int auditAccess(MedicinePurchase medicinePurchase);
 }
