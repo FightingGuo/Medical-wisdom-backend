@@ -116,4 +116,14 @@
         </foreach>
     </delete>
 
+    <resultMap id="SupplierListResult" type="SupplierList">
+        <id property="supplierId" column="supplier_id"/>
+        <id property="supplierName" column="supplier_name"/>
+    </resultMap>
+
+    <select id="getSupplierList" resultMap="SupplierListResult">
+        select s.supplier_id, s.supplier_name
+        from medicine_supplier s
+    </select>
+
 </mapper>

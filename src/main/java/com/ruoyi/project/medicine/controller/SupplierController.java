@@ -7,7 +7,6 @@ import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.medicine.domain.Supplier;
-import com.ruoyi.project.medicine.domain.Supplier;
 import com.ruoyi.project.medicine.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -49,6 +48,7 @@ public class SupplierController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:supplier:query')")
     @GetMapping(value = "/{supplierId}")
     public AjaxResult getInfo(@PathVariable Long supplierId) {
+
         return AjaxResult.success(supplierService.selectSupplierById(supplierId));
     }
 
@@ -101,5 +101,14 @@ public class SupplierController extends BaseController {
     @DeleteMapping("/{supplierIds}")
     public AjaxResult remove(@PathVariable Long[] supplierIds) {
         return toAjax(supplierService.deleteSupplierByIds(supplierIds));
+    }
+
+    /**
+     * 供应商下拉列表
+     */
+    @Log(title = "供应商管理")
+    @GetMapping("/getSupplierList")
+    public AjaxResult getSupplierList() {
+        return AjaxResult.success(supplierService.getSupplierList());
     }
 }

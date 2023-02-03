@@ -1,6 +1,7 @@
 package com.ruoyi.project.medicine.service.Impl;
 
 import com.ruoyi.project.medicine.domain.Supplier;
+import com.ruoyi.project.medicine.domain.SupplierList;
 import com.ruoyi.project.medicine.mapper.SupplierMapper;
 import com.ruoyi.project.medicine.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,5 +96,14 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public int deleteSupplierByIds(Long[] supplierIds) {
         return supplierMapper.deleteSupplierByIds(supplierIds);
+    }
+
+    /**
+     * 获取供应商下拉列表
+     *
+     * @return
+     */
+    public List<SupplierList> getSupplierList(){
+        return supplierMapper.getSupplierList();
     }
 }

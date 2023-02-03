@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.medicine.mapper.MedicinePurchaseMapper">
+
+    <resultMap id="MedicinePurchaseResult" type="MedicinePurchase">
+        <id property="purId" column="pur_id"></id>
+        <result property="supplierId" column="supplier"/>
+        <result property="supplierName" column="supplier_name"/>
+        <result property="purTotal" column="pur_total"/>
+        <result property="purStatus" column="pur_status"/>
+        <result property="purName" column="pur_name"/>
+        <result property="purTime" column="pur_time"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+<!--        <association property="supplier" javaType="Supplier">-->
+<!--            <result property="supplierId" column="supplier_id"/>-->
+<!--            <result property="supplierName" column="supplier_name"/>-->
+<!--            <result property="contact" column="contact"/>-->
+<!--            <result property="telephoneNum" column="telephone_num"/>-->
+<!--            <result property="bankCount" column="bank_count"/>-->
+<!--            <result property="address" column="address"/>-->
+<!--            <result property="status" column="status"/>-->
+<!--            <result property="createBy" column="create_by"/>-->
+<!--            <result property="createTime" column="create_time"/>-->
+<!--            <result property="updateBy" column="update_by"/>-->
+<!--            <result property="updateTime" column="update_time"/>-->
+<!--        </association>-->
+    </resultMap>
+
+
+    <sql id="selectMedicinePurchase">
+        select p.pur_id,
+               p.supplier_id,
+               s.supplier_name,
+               s.address,
+               p.pur_total,
+               p.pur_status,
+               p.pur_name,
+               p.pur_time,
+               p.del_flag,
+               p.create_by,
+               p.create_time,
+               p.update_by,
+               p.update_time
+        from medicine_purchase p
+                 left join medicine_supplier s on s.supplier_id = p.supplier_id
+    </sql>
+
+    <select id="selectMedicinePurchaseList" parameterType="MedicinePurchase" resultMap="MedicinePurchaseResult">
+        <include refid="selectMedicinePurchase"/>
+        where p.del_flag = '0'
+        <if test="supplierId !=null and supplierId != 0">and p.supplier_id =#{supplierId}</if>
+        <if test="purName != null and purName != ''">
+            and p.pur_name like concat('%', #{purName}, '%')
+        </if>
+        <if test="purStatus !=null and purStatus != 0">and p.pur_status =#{purStatus}</if>
+    </select>
+
+    <select id="selectMedicinePurchaseById" parameterType="String" resultMap="MedicinePurchaseResult">
+        <include refid="selectMedicinePurchase"/>
+        where pur_id = #{purId}
+    </select>
+
+    <insert id="insertMedicinePurchase" parameterType="medicinePurchase">
+        insert into medicine_purchase(
+        <if test="purId != null and purId != ''">pur_id,</if>
+        <if test="supplierId != null and supplierId != ''">supplier_id,</if>
+        <if test="supplierName != null and supplierName != ''">supplier_name,</if>
+        <if test="purTotal != null and purTotal != 0">pur_total,</if>
+        <if test="purName != null and purName != ''">pur_name,</if>
+        <if test="purTime != null and purTime != ''">pur_time,</if>
+        <if test="createBy != null and createBy != ''">create_by,</if>
+        create_time
+        )values (
+        <if test="purId != null and purId != ''">#{purId},</if>
+        <if test="supplierId != null and supplierId != ''">#{supplierId},</if>
+        <if test="supplierName != null and supplierName != ''">#{supplierName},</if>
+        <if test="purTotal != null and purTotal != ''">#{purTotal},</if>
+        <if test="purName != null and purName != ''">#{purName},</if>
+        <if test="purTime != null and purTime != ''">#{purTime},</if>
+        <if test="createBy != null and createBy != ''">#{createBy},</if>
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateMedicinePurchase" parameterType="medicinePurchase">
+        update medicine_purchase
+        <set>
+            <if test="supplierId != null and supplierId != ''">supplier_id = #{supplierId},</if>
+            <if test="supplierName != null and supplierName != ''">supplier_name = #{supplierName},</if>
+            <if test="purTotal != null and purTotal != ''">pur_total = #{purTotal},</if>
+            <if test="purStatus != null and purStatus != ''">pur_status = #{purStatus},</if>
+            <if test="purName != null and purName != ''">pur_name = #{purName},</if>
+            <if test="purTime != null and purTime != ''">pur_time = #{purTime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+    </update>
+
+    <delete id="deleteMedicinePurchaseByIds" parameterType="String">
+        update medicine_purchase set del_flag = '2' where pur_id in
+        <foreach collection="array" item="purId" open="(" separator="," close=")">
+            #{purId}
+        </foreach>
+    </delete>
+
+    <update id="submitAudit" parameterType="medicinePurchase">
+        update medicine_purchase
+        set pur_status = '2'
+        where pur_id = #{purId}
+    </update>
+
+    <update id="submitEntryDB" parameterType="medicinePurchase">
+        update medicine_purchase
+        set pur_status = '6', pur_time = now()
+        where pur_id = #{purId}
+    </update>
+
+    <update id="AuditAccess" parameterType="medicinePurchase">
+        update medicine_purchase
+        set pur_status = '3'
+        where pur_id = #{purId}
+    </update>
+
+</mapper>

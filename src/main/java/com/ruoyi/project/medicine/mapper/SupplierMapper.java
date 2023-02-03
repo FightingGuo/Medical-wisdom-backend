@@ -1,6 +1,7 @@
 package com.ruoyi.project.medicine.mapper;
 
 import com.ruoyi.project.medicine.domain.Supplier;
+import com.ruoyi.project.medicine.domain.SupplierList;
 
 import java.util.List;
 
@@ -68,4 +69,11 @@ public interface SupplierMapper {
      * @return 结果
      */
     int deleteSupplierByIds(Long[] supplierIds);
+
+    /**
+     * 获取供应商下拉列表
+     *
+     * @return
+     */
+    List<SupplierList> getSupplierList();
 }
