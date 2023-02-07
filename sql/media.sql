@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 03/02/2023 16:29:24
+ Date: 07/02/2023 16:07:20
 */
 
 SET NAMES utf8mb4;
@@ -165,7 +165,7 @@ CREATE TABLE `QRTZ_SCHEDULER_STATE`  (
 -- ----------------------------
 -- Records of QRTZ_SCHEDULER_STATE
 -- ----------------------------
-INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', '郭昊晨1675410530731', 1675412963459, 15000);
+INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', '郭昊晨1675742027493', 1675757226433, 15000);
 
 -- ----------------------------
 -- Table structure for QRTZ_SIMPLE_TRIGGERS
@@ -242,9 +242,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1675410530000, -1, 5, 'PAUSED', 'CRON', 1675410530000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1675410540000, -1, 5, 'PAUSED', 'CRON', 1675410530000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1675410540000, -1, 5, 'PAUSED', 'CRON', 1675410530000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1675742030000, -1, 5, 'PAUSED', 'CRON', 1675742027000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1675742040000, -1, 5, 'PAUSED', 'CRON', 1675742027000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1675742040000, -1, 5, 'PAUSED', 'CRON', 1675742027000, 0, NULL, 2, '');
 
 -- ----------------------------
 -- Table structure for gen_table
@@ -272,7 +272,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table
@@ -337,18 +337,18 @@ CREATE TABLE `media_dept`  (
 -- Records of media_dept
 -- ----------------------------
 INSERT INTO `media_dept` VALUES (1, '内科', 'HIS-NK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-10 00:52:56', '', 3);
-INSERT INTO `media_dept` VALUES (2, '外科', 'HIS-WK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 1);
-INSERT INTO `media_dept` VALUES (3, '骨科', 'HIS-GK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 5);
-INSERT INTO `media_dept` VALUES (4, '儿科', 'HIS-EK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 2);
-INSERT INTO `media_dept` VALUES (5, '妇科', 'HIS-FK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 4);
-INSERT INTO `media_dept` VALUES (6, '泌尿外科', 'HIS-NK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 7);
-INSERT INTO `media_dept` VALUES (7, '心内科', 'HIS-XK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 6);
-INSERT INTO `media_dept` VALUES (8, '血液科', 'HIS-XYK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 10);
-INSERT INTO `media_dept` VALUES (9, '放射科', 'HIS-FSK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 12);
-INSERT INTO `media_dept` VALUES (10, '化验科', 'HIS-HSK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 11);
-INSERT INTO `media_dept` VALUES (11, '精神内科', 'HIS-SJNK', 1, '陈大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-09 23:54:41', '', 9);
-INSERT INTO `media_dept` VALUES (12, '神经外科', 'HIS-SJWK', 1, '郭大夫', '13842987453', '0', 'admin', '2023-01-09 23:54:23', '', NULL, NULL, 8);
-INSERT INTO `media_dept` VALUES (13, '耳鼻喉科', 'HIS-EBH', 0, '郭大夫', '15898456247', '0', 'admin', '2023-01-10 19:14:59', '', '2023-01-04 01:05:47', NULL, 14);
+INSERT INTO `media_dept` VALUES (2, '外科', 'HIS-WK', 1, '李大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 1);
+INSERT INTO `media_dept` VALUES (3, '骨科', 'HIS-GK', 1, '林大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 5);
+INSERT INTO `media_dept` VALUES (4, '儿科', 'HIS-EK', 1, '吴大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 2);
+INSERT INTO `media_dept` VALUES (5, '妇科', 'HIS-FK', 1, '赵大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 4);
+INSERT INTO `media_dept` VALUES (6, '泌尿外科', 'HIS-NK', 1, '钱大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 7);
+INSERT INTO `media_dept` VALUES (7, '心内科', 'HIS-XK', 1, '孙大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 6);
+INSERT INTO `media_dept` VALUES (8, '血液科', 'HIS-XYK', 1, '雷大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 10);
+INSERT INTO `media_dept` VALUES (9, '放射科', 'HIS-FSK', 1, '卢大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 12);
+INSERT INTO `media_dept` VALUES (10, '化验科', 'HIS-HSK', 1, '余大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 11);
+INSERT INTO `media_dept` VALUES (11, '精神内科', 'HIS-SJNK', 1, '佘大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-09 23:54:41', '', 9);
+INSERT INTO `media_dept` VALUES (12, '神经外科', 'HIS-SJWK', 1, '严大夫', '13842987453', '0', 'admin', '2023-01-09 23:54:23', 'admin', '2023-02-03 16:56:50', NULL, 8);
+INSERT INTO `media_dept` VALUES (13, '耳鼻喉科', 'HIS-EBH', 0, '郭大夫', '15898456247', '0', 'admin', '2023-01-10 19:14:59', 'admin', '2023-01-04 01:05:47', NULL, 14);
 
 -- ----------------------------
 -- Table structure for media_notice
@@ -411,6 +411,29 @@ INSERT INTO `media_role` VALUES (10, '主管医师', 'role:zgys', 5, '0', '0', '
 INSERT INTO `media_role` VALUES (11, '主管医师', 'role:zgys', 11, '0', '0', '管理员', 'admin', '2023-01-28 17:24:50', NULL, NULL);
 INSERT INTO `media_role` VALUES (12, '主管医师', 'role:zgys', 13, '0', '0', '管理员', 'admin', '2023-01-28 17:24:50', 'admin', '2023-01-28 17:36:41');
 INSERT INTO `media_role` VALUES (13, '主管医师', 'role:zgys', 12, '0', '0', '管理员', 'admin', '2023-01-28 17:33:30', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for media_scheduling
+-- ----------------------------
+DROP TABLE IF EXISTS `media_scheduling`;
+CREATE TABLE `media_scheduling`  (
+  `scheduling_id` bigint NOT NULL,
+  `user_id` bigint NULL DEFAULT NULL COMMENT '医生id',
+  `dept_id` bigint NULL DEFAULT NULL COMMENT '科室id',
+  `scheduling_day` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '排班时间（1周一 2周二 3周三 4周四 5周五 6周六  7周日）',
+  `subsection_type` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '分段类型(1上午 2下午 3晚上)',
+  `scheduling_type` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '排班类型（1门诊 2急诊）',
+  `create_time` datetime NULL DEFAULT NULL,
+  `create_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `update_time` datetime NULL DEFAULT NULL,
+  `update_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`scheduling_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of media_scheduling
+-- ----------------------------
+INSERT INTO `media_scheduling` VALUES (1, 3, 2, '2', '1', '1', '2023-02-07 09:19:50', 'admin', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for media_user
@@ -719,6 +742,12 @@ INSERT INTO `sys_dict_data` VALUES (31, 3, '审核失败', '3', 'sys_purchase_st
 INSERT INTO `sys_dict_data` VALUES (32, 4, '审核成功', '4', 'sys_purchase_status', NULL, NULL, 'N', '0', 'admin', '2023-02-02 11:37:00', '', NULL, '审核成功');
 INSERT INTO `sys_dict_data` VALUES (33, 5, '作废', '5', 'sys_purchase_status', NULL, NULL, 'N', '0', 'admin', '2023-02-02 11:37:39', '', NULL, '作废');
 INSERT INTO `sys_dict_data` VALUES (34, 6, '入库成功', '6', 'sys_purchase_status', NULL, NULL, 'N', '0', 'admin', '2023-02-02 11:38:07', '', NULL, '入库成功');
+INSERT INTO `sys_dict_data` VALUES (35, 1, '门诊', '1', 'his_scheduling_type', NULL, NULL, 'Y', '0', 'admin', '2023-02-06 11:29:26', '', NULL, '门诊');
+INSERT INTO `sys_dict_data` VALUES (36, 2, '急诊', '2', 'his_scheduling_type', NULL, NULL, 'N', '0', 'admin', '2023-02-06 11:30:04', '', NULL, '急诊');
+INSERT INTO `sys_dict_data` VALUES (37, 1, '上午', '1', 'his_subsection_type', NULL, NULL, 'N', '0', 'admin', '2023-02-06 11:30:43', '', NULL, '上午');
+INSERT INTO `sys_dict_data` VALUES (38, 2, '下午', '2', 'his_subsection_type', NULL, NULL, 'N', '0', 'admin', '2023-02-06 11:31:06', '', NULL, '下午');
+INSERT INTO `sys_dict_data` VALUES (39, 3, '晚上', '3', 'his_subsection_type', NULL, NULL, 'N', '0', 'admin', '2023-02-06 11:31:26', '', NULL, '晚上');
+INSERT INTO `sys_dict_data` VALUES (40, 1, '', '', '', NULL, NULL, 'N', '0', '', NULL, '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_dict_type
@@ -795,7 +824,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -816,7 +845,7 @@ CREATE TABLE `sys_logininfor`  (
   `msg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '提示消息',
   `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 224 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 232 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -945,6 +974,14 @@ INSERT INTO `sys_logininfor` VALUES (220, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (221, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-02 19:46:36');
 INSERT INTO `sys_logininfor` VALUES (222, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-02 21:38:23');
 INSERT INTO `sys_logininfor` VALUES (223, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-02 22:23:32');
+INSERT INTO `sys_logininfor` VALUES (224, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-03 01:04:12');
+INSERT INTO `sys_logininfor` VALUES (225, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-05 16:56:46');
+INSERT INTO `sys_logininfor` VALUES (226, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-05 17:39:05');
+INSERT INTO `sys_logininfor` VALUES (227, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-05 18:25:33');
+INSERT INTO `sys_logininfor` VALUES (228, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-06 19:55:35');
+INSERT INTO `sys_logininfor` VALUES (229, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码已失效', '2023-02-06 21:58:46');
+INSERT INTO `sys_logininfor` VALUES (230, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-06 21:58:48');
+INSERT INTO `sys_logininfor` VALUES (231, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-02-06 22:37:59');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -970,12 +1007,12 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2057 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2067 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES (1, 'ruoyi系统管理', 0, 1, 'system', NULL, 1, 0, 'M', '0', '0', '', 'system', 'admin', '2023-01-02 23:33:02', 'admin', '2023-01-11 17:48:31', '系统管理目录');
+INSERT INTO `sys_menu` VALUES (1, '系统管理', 0, 1, 'system', NULL, 1, 0, 'M', '0', '0', '', 'system', 'admin', '2023-01-02 23:33:02', 'admin', '2023-02-03 01:04:36', '系统管理目录');
 INSERT INTO `sys_menu` VALUES (2, '系统监控', 0, 11, 'monitor', NULL, 1, 0, 'M', '0', '0', '', 'monitor', 'admin', '2023-01-02 23:33:02', 'admin', '2023-01-29 22:13:09', '系统监控目录');
 INSERT INTO `sys_menu` VALUES (3, '系统工具', 0, 12, 'tool', NULL, 1, 0, 'M', '0', '0', '', 'tool', 'admin', '2023-01-02 23:33:02', 'admin', '2023-01-29 22:13:17', '系统工具目录');
 INSERT INTO `sys_menu` VALUES (4, '若依官网', 0, 10, 'http://ruoyi.vip', NULL, 0, 0, 'M', '1', '0', '', 'guide', 'admin', '2023-01-02 23:33:02', 'admin', '2023-01-28 17:49:34', '若依官网地址');
@@ -1058,7 +1095,7 @@ INSERT INTO `sys_menu` VALUES (1057, '生成删除', 115, 3, '#', '', 1, 0, 'F',
 INSERT INTO `sys_menu` VALUES (1058, '导入代码', 115, 2, '#', '', 1, 0, 'F', '0', '0', 'tool:gen:import', '#', 'admin', '2023-01-02 23:33:02', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1059, '预览代码', 115, 4, '#', '', 1, 0, 'F', '0', '0', 'tool:gen:preview', '#', 'admin', '2023-01-02 23:33:02', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (1060, '生成代码', 115, 5, '#', '', 1, 0, 'F', '0', '0', 'tool:gen:code', '#', 'admin', '2023-01-02 23:33:02', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2000, '系统管理', 0, 4, 'media', NULL, 1, 0, 'M', '0', '0', '', 'server', 'admin', '2023-01-04 00:24:16', 'admin', '2023-01-27 18:41:40', '');
+INSERT INTO `sys_menu` VALUES (2000, '医院管理', 0, 4, 'media', NULL, 1, 0, 'M', '0', '0', '', 'server', 'admin', '2023-01-04 00:24:16', 'admin', '2023-02-03 01:04:30', '');
 INSERT INTO `sys_menu` VALUES (2001, '科室管理', 2000, 1, 'dept', 'media/dept/index', 1, 0, 'C', '0', '0', 'media:dept:list', 'build', 'admin', '2023-01-04 00:30:02', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2002, '科室查询', 2001, 1, '', NULL, 1, 0, 'F', '0', '0', 'media:dept:query', '#', 'admin', '2023-01-04 00:32:35', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2004, '科室添加', 2001, 2, '', NULL, 1, 0, 'F', '0', '0', 'media:dept:add', '#', 'admin', '2023-01-04 00:35:08', 'admin', '2023-01-04 00:37:54', '');
@@ -1071,7 +1108,6 @@ INSERT INTO `sys_menu` VALUES (2012, '用户修改', 2008, 3, '', NULL, 1, 0, 'F
 INSERT INTO `sys_menu` VALUES (2013, '用户删除', 2008, 4, '', NULL, 1, 0, 'F', '0', '0', 'media:user:remove', '#', 'admin', '2023-01-10 00:34:39', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2014, '重置密码', 2008, 5, '', NULL, 1, 0, 'F', '0', '0', 'media:user:resetUserPwd', '#', 'admin', '2023-01-10 00:37:59', 'admin', '2023-01-11 17:21:07', '');
 INSERT INTO `sys_menu` VALUES (2015, '分配角色', 2008, 6, '', NULL, 1, 0, 'F', '0', '0', 'media:user:role', '#', 'admin', '2023-01-10 00:56:19', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2016, '看病就诊', 0, 9, 'media:save', NULL, 1, 0, 'M', '0', '0', '', 'button', 'admin', '2023-01-27 18:40:27', 'admin', '2023-01-28 17:49:28', '');
 INSERT INTO `sys_menu` VALUES (2017, '角色管理', 2000, 3, 'role', 'media/role/index', 1, 0, 'C', '0', '0', 'media:role:list', 'peoples', 'admin', '2023-01-27 18:44:11', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2018, '角色查询', 2017, 1, '', NULL, 1, 0, 'F', '0', '0', 'media:role:query', '#', 'admin', '2023-01-27 18:45:31', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2019, '角色修改', 2017, 2, '', NULL, 1, 0, 'F', '0', '0', 'media:role:edit', '#', 'admin', '2023-01-27 18:46:06', '', NULL, '');
@@ -1157,7 +1193,7 @@ CREATE TABLE `sys_oper_log`  (
   `error_msg` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 262 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 296 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -1423,6 +1459,40 @@ INSERT INTO `sys_oper_log` VALUES (258, '供应商管理', 0, 'com.ruoyi.project
 INSERT INTO `sys_oper_log` VALUES (259, '采购管理', 2, 'com.ruoyi.project.medicine.controller.MedicinePurchaseController.submitAudit()', 'PUT', 1, 'admin', NULL, '/medicine/purchase/submitAudit', '127.0.0.1', '内网IP', '{\"purId\":\"CG6542165489789546321\",\"params\":{},\"purStatus\":\"1\",\"updateBy\":\"admin\"}', '{\"msg\":\"提交审核成功\",\"code\":200,\"data\":1}', 0, NULL, '2023-02-02 23:47:25');
 INSERT INTO `sys_oper_log` VALUES (260, '采购管理', 2, 'com.ruoyi.project.medicine.controller.CheckAccessController.AuditAccess()', 'PUT', 1, 'admin', NULL, '/medicine/check/auditAccess/CG1271358119477379072', '127.0.0.1', '内网IP', '[\"CG1271358119477379072\"]', '{\"msg\":\"操作成功\",\"code\":200,\"data\":1}', 0, NULL, '2023-02-02 23:51:50');
 INSERT INTO `sys_oper_log` VALUES (261, '供应商管理', 0, 'com.ruoyi.project.medicine.controller.SupplierController.getSupplierList()', 'GET', 1, 'admin', NULL, '/medicine/supplier/getSupplierList', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200,\"data\":[{\"supplierId\":1,\"supplierName\":\"云南英广贺易有限公司\\n\"},{\"supplierId\":2,\"supplierName\":\"厦门贺竹贸易有限公司\"},{\"supplierId\":3,\"supplierName\":\"上海益贺贸易有限公司\"},{\"supplierId\":4,\"supplierName\":\"广州市贺易时贸易有限公司\"},{\"supplierId\":5,\"supplierName\":\"广州市森大贸易有限公司\"}]}', 0, NULL, '2023-02-02 23:52:03');
+INSERT INTO `sys_oper_log` VALUES (262, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"server\",\"orderNum\":\"4\",\"menuName\":\"医院管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"media\",\"children\":[],\"createTime\":1672763056000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2000,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-03 01:04:30');
+INSERT INTO `sys_oper_log` VALUES (263, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"system\",\"orderNum\":\"1\",\"menuName\":\"系统管理\",\"params\":{},\"parentId\":0,\"isCache\":\"0\",\"path\":\"system\",\"children\":[],\"createTime\":1672673582000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":1,\"menuType\":\"M\",\"perms\":\"\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-03 01:04:36');
+INSERT INTO `sys_oper_log` VALUES (264, '供应商管理', 0, 'com.ruoyi.project.medicine.controller.SupplierController.getSupplierList()', 'GET', 1, 'admin', NULL, '/medicine/supplier/getSupplierList', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200,\"data\":[{\"supplierId\":1,\"supplierName\":\"云南英广贺易有限公司\\n\"},{\"supplierId\":2,\"supplierName\":\"厦门贺竹贸易有限公司\"},{\"supplierId\":3,\"supplierName\":\"上海益贺贸易有限公司\"},{\"supplierId\":4,\"supplierName\":\"广州市贺易时贸易有限公司\"},{\"supplierId\":5,\"supplierName\":\"广州市森大贸易有限公司\"}]}', 0, NULL, '2023-02-05 17:02:45');
+INSERT INTO `sys_oper_log` VALUES (265, '采购管理', 2, 'com.ruoyi.project.medicine.controller.MedicinePurchaseController.submitAudit()', 'PUT', 1, 'admin', NULL, '/medicine/purchase/submitAudit', '127.0.0.1', '内网IP', '{\"purId\":\"CG3541236645214523654\",\"params\":{},\"purStatus\":\"2\"}', '{\"msg\":\"已处于提交状态！\",\"code\":500}', 0, NULL, '2023-02-05 17:02:54');
+INSERT INTO `sys_oper_log` VALUES (266, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"1\",\"menuName\":\"门诊挂号\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"seedoctor\",\"component\":\"seedoctor/reglist/index\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"C\",\"perms\":\"seedoctor:reglist:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 17:46:10');
+INSERT INTO `sys_oper_log` VALUES (267, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"eye\",\"orderNum\":\"6\",\"menuName\":\"我的排班\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"mywork\",\"component\":\"seedoctor/mywork/index\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"C\",\"perms\":\"seedoctor:mywork:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 17:48:08');
+INSERT INTO `sys_oper_log` VALUES (268, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"1\",\"menuName\":\"根据id获取患者档案\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedoctor:patient:record\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 17:50:10');
+INSERT INTO `sys_oper_log` VALUES (269, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"2\",\"menuName\":\"获取患者列表\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedoctor:patient:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 17:50:53');
+INSERT INTO `sys_oper_log` VALUES (270, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"#\",\"orderNum\":\"1\",\"menuName\":\"已存在患者\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"path\":\"\",\"children\":[],\"createTime\":1675590610000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2059,\"menuType\":\"F\",\"perms\":\"seedoctor:patient:record\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:26:29');
+INSERT INTO `sys_oper_log` VALUES (271, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"#\",\"orderNum\":\"1\",\"menuName\":\"已存在患者挂号\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"path\":\"\",\"children\":[],\"createTime\":1675590610000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2059,\"menuType\":\"F\",\"perms\":\"seedoctor:patient:record\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:26:48');
+INSERT INTO `sys_oper_log` VALUES (272, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2060', '127.0.0.1', '内网IP', '{menuId=2060}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:27:17');
+INSERT INTO `sys_oper_log` VALUES (273, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"2\",\"menuName\":\"获取患者列表\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedocotr:patient:getPatient\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:51:07');
+INSERT INTO `sys_oper_log` VALUES (274, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"3\",\"menuName\":\"通过身份证获取患者信息\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedoctor:patient:getPatientById\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:52:49');
+INSERT INTO `sys_oper_log` VALUES (275, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"2\",\"menuName\":\"挂号列表\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"reglist\",\"component\":\"seedoctor/reglist/list\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"C\",\"perms\":\"seedoctor:reglist:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:57:33');
+INSERT INTO `sys_oper_log` VALUES (276, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"2\",\"menuName\":\"挂号列表\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"reglist\",\"component\":\"seedoctor/reglist/list\",\"children\":[],\"createTime\":1675594653000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2063,\"menuType\":\"C\",\"perms\":\"seedoctor:reglist:index\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:58:05');
+INSERT INTO `sys_oper_log` VALUES (277, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"2\",\"menuName\":\"挂号列表\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"reglist\",\"component\":\"seedoctor/reglist/index\",\"children\":[],\"createTime\":1675594653000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2063,\"menuType\":\"C\",\"perms\":\"seedoctor:reglist:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:58:22');
+INSERT INTO `sys_oper_log` VALUES (278, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"2\",\"menuName\":\"挂号列表\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"reglist\",\"component\":\"seedoctor/reglist/index\",\"children\":[],\"createTime\":1675594653000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2063,\"menuType\":\"C\",\"perms\":\"seedoctor:reglist:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:58:23');
+INSERT INTO `sys_oper_log` VALUES (279, '菜单管理', 2, 'com.ruoyi.project.system.controller.SysMenuController.edit()', 'PUT', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"1\",\"menuName\":\"门诊挂号\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"registration\",\"component\":\"seedoctor/registration/index\",\"children\":[],\"createTime\":1675590370000,\"updateBy\":\"admin\",\"isFrame\":\"1\",\"menuId\":2057,\"menuType\":\"C\",\"perms\":\"seedoctor:registration:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 18:59:15');
+INSERT INTO `sys_oper_log` VALUES (280, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"icon\":\"guide\",\"orderNum\":\"6\",\"menuName\":\"患者库\",\"params\":{},\"parentId\":2016,\"isCache\":\"0\",\"path\":\"patient\",\"component\":\"seedoctor/patient/index\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"C\",\"perms\":\"seedoctor:pateient:list\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:01:13');
+INSERT INTO `sys_oper_log` VALUES (281, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2062', '127.0.0.1', '内网IP', '{menuId=2062}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:03:00');
+INSERT INTO `sys_oper_log` VALUES (282, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2061', '127.0.0.1', '内网IP', '{menuId=2061}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:03:15');
+INSERT INTO `sys_oper_log` VALUES (283, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"1\",\"menuName\":\"根据患者id获取档案\",\"params\":{},\"parentId\":2064,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedoctor:patient:record\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:03:53');
+INSERT INTO `sys_oper_log` VALUES (284, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2059', '127.0.0.1', '内网IP', '{menuId=2059}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:05:07');
+INSERT INTO `sys_oper_log` VALUES (285, '菜单管理', 1, 'com.ruoyi.project.system.controller.SysMenuController.add()', 'POST', 1, 'admin', NULL, '/system/menu', '127.0.0.1', '内网IP', '{\"visible\":\"0\",\"orderNum\":\"1\",\"menuName\":\"根据患者身份证获取信息\",\"params\":{},\"parentId\":2057,\"isCache\":\"0\",\"createBy\":\"admin\",\"children\":[],\"isFrame\":\"1\",\"menuType\":\"F\",\"perms\":\"seedoctor:registration:getPatientByIdCard\",\"status\":\"0\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-05 19:06:34');
+INSERT INTO `sys_oper_log` VALUES (286, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2016', '127.0.0.1', '内网IP', '{menuId=2016}', '{\"msg\":\"存在子菜单,不允许删除\",\"code\":500}', 0, NULL, '2023-02-06 22:38:38');
+INSERT INTO `sys_oper_log` VALUES (287, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2063', '127.0.0.1', '内网IP', '{menuId=2063}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:38:42');
+INSERT INTO `sys_oper_log` VALUES (288, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2057', '127.0.0.1', '内网IP', '{menuId=2057}', '{\"msg\":\"存在子菜单,不允许删除\",\"code\":500}', 0, NULL, '2023-02-06 22:38:45');
+INSERT INTO `sys_oper_log` VALUES (289, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2066', '127.0.0.1', '内网IP', '{menuId=2066}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:38:51');
+INSERT INTO `sys_oper_log` VALUES (290, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2065', '127.0.0.1', '内网IP', '{menuId=2065}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:38:55');
+INSERT INTO `sys_oper_log` VALUES (291, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2064', '127.0.0.1', '内网IP', '{menuId=2064}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:38:58');
+INSERT INTO `sys_oper_log` VALUES (292, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2058', '127.0.0.1', '内网IP', '{menuId=2058}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:39:01');
+INSERT INTO `sys_oper_log` VALUES (293, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2057', '127.0.0.1', '内网IP', '{menuId=2057}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:39:04');
+INSERT INTO `sys_oper_log` VALUES (294, '菜单管理', 3, 'com.ruoyi.project.system.controller.SysMenuController.remove()', 'DELETE', 1, 'admin', NULL, '/system/menu/2016', '127.0.0.1', '内网IP', '{menuId=2016}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-02-06 22:39:07');
+INSERT INTO `sys_oper_log` VALUES (295, '供应商管理', 0, 'com.ruoyi.project.medicine.controller.SupplierController.getSupplierList()', 'GET', 1, 'admin', NULL, '/medicine/supplier/getSupplierList', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200,\"data\":[{\"supplierId\":1,\"supplierName\":\"云南英广贺易有限公司\\n\"},{\"supplierId\":2,\"supplierName\":\"厦门贺竹贸易有限公司\"},{\"supplierId\":3,\"supplierName\":\"上海益贺贸易有限公司\"},{\"supplierId\":4,\"supplierName\":\"广州市贺易时贸易有限公司\"},{\"supplierId\":5,\"supplierName\":\"广州市森大贸易有限公司\"}]}', 0, NULL, '2023-02-06 22:47:11');
 
 -- ----------------------------
 -- Table structure for sys_post
