@@ -32,6 +32,21 @@ public class MedicinePurchase extends BaseEntity {
     @Excel(name = "采购批发总额")
     private BigDecimal purTotal;
 
+    /**
+     * 采购数量
+     */
+    private Long purCount;
+
+    /**
+     * 采购单价
+     */
+    private BigDecimal purPrice;
+
+    /**
+     * 采购药品名称
+     */
+    private String medicineName;
+
     /** 采购状态； 1未提交2待审核 3审核通过 4审核失败 5作废 6入库成功  */
     @Excel(name = "采购状态； 1未提交2待审核 3审核通过 4审核失败 5作废 6入库成功 ")
     private String purStatus;

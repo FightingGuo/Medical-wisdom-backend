@@ -17,6 +17,9 @@
         <result property="createTime" column="create_time"/>
         <result property="updateBy" column="update_by"/>
         <result property="updateTime" column="update_time"/>
+        <result property="purCount" column="pur_count"/>
+        <result property="purPrice" column="pur_price"/>
+        <result property="medicineName" column="medicine_name"/>
 <!--        <association property="supplier" javaType="Supplier">-->
 <!--            <result property="supplierId" column="supplier_id"/>-->
 <!--            <result property="supplierName" column="supplier_name"/>-->
@@ -38,17 +41,21 @@
                p.supplier_id,
                s.supplier_name,
                s.address,
-               p.pur_total,
+               (pur_count*pur_price) pur_total,
+               i.medicine_name,
                p.pur_status,
                p.pur_name,
                p.pur_time,
                p.del_flag,
+               p.pur_price,
+               p.pur_count,
                p.create_by,
                p.create_time,
                p.update_by,
                p.update_time
         from medicine_purchase p
                  left join medicine_supplier s on s.supplier_id = p.supplier_id
+                 left join medicine_info i on p.medicine_id = i.medicine_id
     </sql>
 
     <select id="selectMedicinePurchaseList" parameterType="MedicinePurchase" resultMap="MedicinePurchaseResult">
