@@ -25,7 +25,7 @@
                p.supplier_id,
                s.supplier_name,
                s.address,
-               p.pur_total,
+               (pur_count*pur_price) pur_total,
                p.pur_status,
                p.pur_name,
                p.pur_time,

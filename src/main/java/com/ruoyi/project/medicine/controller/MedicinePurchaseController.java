@@ -1,18 +1,23 @@
 package com.ruoyi.project.medicine.controller;
 
+import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.common.utils.SnowId;
 import com.ruoyi.framework.aspectj.lang.annotation.Log;
 import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.medicine.domain.MedicineInfo;
 import com.ruoyi.project.medicine.domain.MedicinePurchase;
+import com.ruoyi.project.medicine.service.MedicineInfoService;
 import com.ruoyi.project.medicine.service.MedicinePurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,9 +28,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/medicine/purchase")
 public class MedicinePurchaseController extends BaseController {
+
     @Autowired
     private MedicinePurchaseService medicinePurchaseService;
 
+    @Autowired
+    private MedicineInfoService medicineInfoService;
 
     /**
      * 查询采购列表
@@ -58,7 +66,19 @@ public class MedicinePurchaseController extends BaseController {
     @Log(title = "采购管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody MedicinePurchase medicinePurchase) {
+
+        SnowId snowId = new SnowId(medicinePurchase.getMedicineId(), medicinePurchase.getSupplierId(), 2);
+        String purId = (String) "CG" + snowId.nextId();
+        medicinePurchase.setPurId(purId);
         medicinePurchase.setCreateBy(SecurityUtils.getUsername());
+
+        //关联药品信息表增加库存数据  先查出库存数据
+        MedicineInfo medicineInfo = medicineInfoService.selectMedicineInfoById(medicinePurchase.getMedicineId());
+
+        medicineInfo.setStock(medicinePurchase.getPurCount()+medicineInfo.getStock());
+        medicineInfo.setMedicineId(medicinePurchase.getMedicineId());
+        medicineInfoService.updateMedicineInfo(medicineInfo);
+
         return toAjax(medicinePurchaseService.insertMedicinePurchase(medicinePurchase));
     }
 
@@ -84,10 +104,10 @@ public class MedicinePurchaseController extends BaseController {
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/submitAudit")
     public AjaxResult submitAudit(@RequestBody MedicinePurchase medicinePurchase) {
-        if (medicinePurchase.getPurStatus() .equals("2")) {
+        if (medicinePurchase.getPurStatus().equals("2")) {
             return AjaxResult.error("已处于提交状态！");
         }
-        if (medicinePurchase.getPurStatus() .equals("3")  || medicinePurchase.getPurStatus() .equals("6")) {
+        if (medicinePurchase.getPurStatus().equals("3") || medicinePurchase.getPurStatus().equals("6")) {
             return AjaxResult.error("审核已通过请勿重复提交");
         }
         medicinePurchase.setUpdateBy(SecurityUtils.getUsername());

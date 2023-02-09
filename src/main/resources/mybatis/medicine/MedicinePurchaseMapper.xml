@@ -19,6 +19,7 @@
         <result property="updateTime" column="update_time"/>
         <result property="purCount" column="pur_count"/>
         <result property="purPrice" column="pur_price"/>
+        <result property="medicineId" column="medicineId"/>
         <result property="medicineName" column="medicine_name"/>
 <!--        <association property="supplier" javaType="Supplier">-->
 <!--            <result property="supplierId" column="supplier_id"/>-->
@@ -77,20 +78,22 @@
         insert into medicine_purchase(
         <if test="purId != null and purId != ''">pur_id,</if>
         <if test="supplierId != null and supplierId != ''">supplier_id,</if>
-        <if test="supplierName != null and supplierName != ''">supplier_name,</if>
-        <if test="purTotal != null and purTotal != 0">pur_total,</if>
+        <if test="medicineId != null and medicineId != ''">medicine_id,</if>
+        <if test="purPrice != null and purPrice != ''">pur_price,</if>
+        <if test="purCount != null and purCount != ''">pur_count,</if>
         <if test="purName != null and purName != ''">pur_name,</if>
-        <if test="purTime != null and purTime != ''">pur_time,</if>
         <if test="createBy != null and createBy != ''">create_by,</if>
+        pur_time,
         create_time
         )values (
         <if test="purId != null and purId != ''">#{purId},</if>
         <if test="supplierId != null and supplierId != ''">#{supplierId},</if>
-        <if test="supplierName != null and supplierName != ''">#{supplierName},</if>
-        <if test="purTotal != null and purTotal != ''">#{purTotal},</if>
+        <if test="medicineId != null and medicineId != ''">#{medicineId},</if>
+        <if test="purPrice != null and purPrice != ''">#{purPrice},</if>
+        <if test="purCount != null and purCount != ''">#{purCount},</if>
         <if test="purName != null and purName != ''">#{purName},</if>
-        <if test="purTime != null and purTime != ''">#{purTime},</if>
         <if test="createBy != null and createBy != ''">#{createBy},</if>
+        sysdate(),
         sysdate()
         )
     </insert>
