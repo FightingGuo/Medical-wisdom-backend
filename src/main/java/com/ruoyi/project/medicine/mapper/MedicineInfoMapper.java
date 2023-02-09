@@ -2,6 +2,7 @@ package com.ruoyi.project.medicine.mapper;
 
 import com.ruoyi.project.medicine.domain.MedicineFactoryList;
 import com.ruoyi.project.medicine.domain.MedicineInfo;
+import com.ruoyi.project.medicine.domain.MedicineList;
 
 import java.util.List;
 
@@ -84,5 +85,12 @@ public interface MedicineInfoMapper {
      * @return 结果
      */
     int deleteMedicineInfoByIds(Long[] medicineInfoIds);
+
+    /**
+     * 获取药品信息下拉列表
+     *
+     * @return
+     */
+    List<MedicineList> selectMedicineList();
 
 }

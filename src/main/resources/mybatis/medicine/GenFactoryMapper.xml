@@ -140,13 +140,7 @@
         </foreach>
     </delete>
 
-
-    <resultMap type="MedicineFactoryList" id="MedicineFactoryResult">
-        <id property="factoryId" column="factory_id"/>
-        <result property="factoryName" column="factory_name"/>
-    </resultMap>
-
-    <select id="getFactoryNameList" resultMap="MedicineFactoryResult">
+    <select id="getFactoryNameList" resultMap="GenFactoryResult">
         select f.factory_id, f.factory_name
         from medicine_factory f;
     </select>

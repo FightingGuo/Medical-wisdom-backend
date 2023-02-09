@@ -102,4 +102,10 @@ public class MedicineInfoController extends BaseController {
     public AjaxResult remove(@PathVariable Long[] infoIds) {
         return toAjax(medicineInfoService.deleteMedicineInfoByIds(infoIds));
     }
+
+    @GetMapping("/getMedicineList")
+    public AjaxResult getMedicineList(){
+        return AjaxResult.success(medicineInfoService.selectMedicineList());
+    }
+
 }

@@ -155,4 +155,8 @@
         </foreach>
     </delete>
 
+    <select id="selectMedicineList" resultMap="MedicineInfoResult">
+        select medicine_id,medicine_name from medicine_info
+    </select>
+
 </mapper>

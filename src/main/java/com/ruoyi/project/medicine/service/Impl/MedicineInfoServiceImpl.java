@@ -1,6 +1,7 @@
 package com.ruoyi.project.medicine.service.Impl;
 
 import com.ruoyi.project.medicine.domain.MedicineInfo;
+import com.ruoyi.project.medicine.domain.MedicineList;
 import com.ruoyi.project.medicine.mapper.MedicineInfoMapper;
 import com.ruoyi.project.medicine.service.MedicineInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,5 +118,14 @@ public class MedicineInfoServiceImpl implements MedicineInfoService {
     @Override
     public int deleteMedicineInfoByIds(Long[] medicineInfoIds) {
         return medicineInfoMapper.deleteMedicineInfoByIds(medicineInfoIds);
+    }
+
+    /**
+     * 获取药品信息下拉列表
+     *
+     * @return
+     */
+    public List<MedicineList> selectMedicineList(){
+        return medicineInfoMapper.selectMedicineList();
     }
 }
