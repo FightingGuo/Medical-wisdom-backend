@@ -6,6 +6,8 @@ import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
 import com.ruoyi.framework.web.controller.BaseController;
 import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
+import com.ruoyi.project.medicine.constant.MedicineEum;
+import com.ruoyi.project.medicine.constant.MedicineConstant;
 import com.ruoyi.project.medicine.domain.MedicinePurchase;
 import com.ruoyi.project.medicine.service.CheckAccessService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,21 +57,21 @@ public class CheckAccessController extends BaseController {
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/submitEntryDB")
     public AjaxResult submitEntryDB(@RequestBody MedicinePurchase medicinePurchase) {
-        if (medicinePurchase.getPurStatus().equals("6")) {
-            return AjaxResult.error("审核已入库,请问重复提交~");
+        if (medicinePurchase.getPurStatus().equals(MedicineEum.SIX)) {
+            return AjaxResult.error(MedicineConstant.SUBMIT_DB_REPEATABLE);
         }
 
-        if (    medicinePurchase.getPurStatus() .equals("1")   ||
-                medicinePurchase.getPurStatus() .equals("2")  ||
-                medicinePurchase.getPurStatus() .equals("4")
+        if (    medicinePurchase.getPurStatus() .equals(MedicineEum.ONE)   ||
+                medicinePurchase.getPurStatus() .equals(MedicineEum.TWO)  ||
+                medicinePurchase.getPurStatus() .equals(MedicineEum.FOUR)
         ) {
-            return AjaxResult.error("审核未通过或未提交,请重新提交审核后重试~");
+            return AjaxResult.error(MedicineConstant.AUDIT_FAIL);
         }
-        if (medicinePurchase.getPurStatus() .equals("5") ) {
-            return AjaxResult.error("审核已作废,请问重新提交审核~");
+        if (medicinePurchase.getPurStatus() .equals(MedicineEum.FIVE) ) {
+            return AjaxResult.error(MedicineConstant.AUDIT_INVALID);
         }
         medicinePurchase.setUpdateBy(SecurityUtils.getUsername());
-        return AjaxResult.success("提交入库成功", checkAccessService.submitEntryDB(medicinePurchase));
+        return AjaxResult.success(MedicineConstant.SUBMIT_DB_SUCCESS, checkAccessService.submitEntryDB(medicinePurchase));
     }
 
     /**
