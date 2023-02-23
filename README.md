@@ -33,30 +33,24 @@
         <td><img src="https://github.com/FightingGuo/ruoyi-backend/blob/master/image/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8074972883b5ba0622e13246738ebba237a.png"/></td>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E7%B3%BB%E7%BB%9F%E9%A6%96%E9%A1%B5.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-39bf2584ec3a529b0d5a3b70d15c9b37646.png"/></td>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E6%96%B0%E5%A2%9E%E5%8C%BB%E7%94%9F.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-b2d62ceb95d2dd9b3fbe157bb70d26001e9.png"/></td>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E5%8C%BB%E9%99%A2%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E7%A7%91%E5%AE%A4%E7%AE%A1%E7%90%86.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E8%8D%AF%E5%93%81%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86.png"/></td>
     </tr>	 
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg"/></td>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E4%BE%9B%E5%BA%94%E5%95%86%E7%AE%A1%E7%90%86.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8370a0d02977eebf6dbf854c8450293c937.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d4fe726319ece268d4746602c39cffc0621.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
+        <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A.png"/></td>
     </tr>
 </table>
