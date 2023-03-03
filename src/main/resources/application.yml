@@ -59,13 +59,15 @@ spring:
   # redis 配置
   redis:
     # 地址
-    host: localhost
+    cluster:
+      nodes: 192.168.233.3:6381,192.168.233.3:6382,192.168.233.3:6383,192.168.233.3:6384,192.168.233.3:6385,192.168.233.3:638
+    #    host: localhost
     # 端口，默认为6379
-    port: 6379
+#    port: 6379
     # 数据库索引
-    database: 0
+#    database: 0
     # 密码
-    password:
+#    password:
     # 连接超时时间
     timeout: 10s
     lettuce:
