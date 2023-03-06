@@ -17,6 +17,11 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+
+CREATE DATABASE IF NOT EXISTS media default character set UTF8mb4 collate utf8mb4_unicode_ci;
+
+USE media;
+
 -- ----------------------------
 -- Table structure for gen_table
 -- ----------------------------
