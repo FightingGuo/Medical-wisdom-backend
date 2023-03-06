@@ -8,6 +8,8 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.medicine.domain.GenFactory;
 import com.ruoyi.project.medicine.service.GenFactoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +24,7 @@ import java.util.List;
  */
 @RequestMapping("/medicine/factory")
 @RestController
+@Api(tags = "生成厂家控制层")
 public class GenFactoryController extends BaseController {
     
     @Autowired
@@ -33,6 +36,7 @@ public class GenFactoryController extends BaseController {
      * @param factory
      * @return
      */
+    @ApiOperation("查询厂家列表")
     @PreAuthorize("@ss.hasPermi('medicine:factory:list')")
     @GetMapping("/list")
     public TableDataInfo list(GenFactory factory) {
@@ -46,6 +50,7 @@ public class GenFactoryController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('medicine:factory:query')")
     @GetMapping(value = "/{factoryId}")
+    @ApiOperation("根据厂家编号获取详细信息")
     public AjaxResult getInfo(@PathVariable Long factoryId) {
         return AjaxResult.success(genFactoryService.selectFactoryById(factoryId));
     }
@@ -56,6 +61,7 @@ public class GenFactoryController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:factory:add')")
     @Log(title = "厂家管理", businessType = BusinessType.INSERT)
     @PostMapping
+    @ApiOperation("新增厂家")
     public AjaxResult add(@Validated @RequestBody GenFactory factory) {
         if (null != genFactoryService.checkFactoryNameUnique(factory.getFactoryName())) {
             return AjaxResult.error("新增厂家'" + factory.getFactoryName() + "'失败，厂家名称已存在");
@@ -72,6 +78,7 @@ public class GenFactoryController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:factory:edit')")
     @Log(title = "厂家管理", businessType = BusinessType.UPDATE)
     @PutMapping
+    @ApiOperation("修改保存厂家")
     public AjaxResult edit(@Validated @RequestBody GenFactory factory) {
         if (null != genFactoryService.checkFactoryNameUnique(factory.getFactoryName())) {
             return AjaxResult.error("修改厂家'" + factory.getFactoryName() + "'失败，厂家名称已存在");
@@ -93,6 +100,7 @@ public class GenFactoryController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:factory:edit')")
     @Log(title = "厂家管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
+    @ApiOperation("状态修改")
     public AjaxResult changeStatus(@RequestBody GenFactory factory) {
         factory.setUpdateBy(SecurityUtils.getUsername());
         return toAjax(genFactoryService.updateFactoryStatus(factory));
@@ -104,6 +112,7 @@ public class GenFactoryController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:factory:remove')")
     @Log(title = "厂家管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{factoryIds}")
+    @ApiOperation("删除厂家")
     public AjaxResult remove(@PathVariable Long[] factoryIds) {
         return toAjax(genFactoryService.deleteFactoryByIds(factoryIds));
     }
@@ -113,6 +122,7 @@ public class GenFactoryController extends BaseController {
      * @return
      */
     @GetMapping("/getFactoryList")
+    @ApiOperation("获取厂家下拉列表数据")
     public AjaxResult getDeptList() {
         return AjaxResult.success(genFactoryService.getFactoryNameList());
     }

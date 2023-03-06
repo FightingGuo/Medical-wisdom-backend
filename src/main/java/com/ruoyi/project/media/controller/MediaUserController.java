@@ -12,6 +12,8 @@ import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.media.domain.MediaUser;
 import com.ruoyi.project.media.domain.ResetPassword;
 import com.ruoyi.project.media.service.MediaUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -24,7 +26,7 @@ import java.util.List;
  * @Author guohc
  * @Description  用户模块
  */
-
+@Api(tags = "用户管理控制层")
 @RestController
 @RequestMapping("/media/user")
 public class MediaUserController extends BaseController {
@@ -37,15 +39,23 @@ public class MediaUserController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('media:user:list')")
     @GetMapping("/list")
+    @ApiOperation("获取用户列表")
     public TableDataInfo list(MediaUser mediaUser) {
         startPage();
         List<MediaUser> list = mediaUserService.selectUserList(mediaUser);
         return getDataTable(list);
     }
 
+    /**
+     * 导出用户数据
+     *
+     * @param mediaUser
+     * @return
+     */
     @Log(title = "用户管理" , businessType = BusinessType.EXPORT)
     @PreAuthorize("@ss.hasPermi('media:user:export')")
     @GetMapping("/export")
+    @ApiOperation("导出用户数据")
     public AjaxResult export(MediaUser mediaUser) {
         List<MediaUser> list = mediaUserService.selectUserList(mediaUser);
         ExcelUtil<MediaUser> util = new ExcelUtil<>(MediaUser.class);
@@ -59,6 +69,7 @@ public class MediaUserController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:user:add')")
     @Log(title = "用户管理" , businessType = BusinessType.INSERT)
     @PostMapping
+    @ApiOperation("新增用户")
     public AjaxResult add(@Validated @RequestBody MediaUser mediaUser) {
         if (UserConstants.NOT_UNIQUE.equals(mediaUserService.checkUserNameUnique(mediaUser.getUserName()))) {
             return AjaxResult.error("新增用户'" + mediaUser.getUserName() + "'失败，登录账号已存在");
@@ -81,6 +92,7 @@ public class MediaUserController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:user:edit')")
     @Log(title = "用户管理" , businessType = BusinessType.UPDATE)
     @PutMapping
+    @ApiOperation("修改用户")
     public AjaxResult edit(@Validated @RequestBody MediaUser mediaUser) {
         mediaUserService.checkUserAllowed(mediaUser);
         if (StringUtils.isNotEmpty(mediaUser.getPhoneNumber())
@@ -97,6 +109,7 @@ public class MediaUserController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:user:remove')")
     @Log(title = "用户管理" , businessType = BusinessType.DELETE)
     @DeleteMapping("/{userIds}")
+    @ApiOperation("删除用户")
     public AjaxResult remove(@PathVariable Long[] userIds) {
         return toAjax(mediaUserService.deleteUserByIds(userIds));
     }
@@ -107,6 +120,7 @@ public class MediaUserController extends BaseController {
     @PreAuthorize("@ss.hasPermi('system:user:resetUserPwd')")
     @Log(title = "用户管理" , businessType = BusinessType.UPDATE)
     @PutMapping("/resetUserPwd")
+    @ApiOperation("重置密码（可批量）")
     public AjaxResult resetPwd(@Validated @RequestBody ResetPassword resetPassword) {
 //        mediaUserService.checkUserAllowed(mediaUser);
 //        mediaUser.setPassword(SecurityUtils.encryptPassword(mediaUser.getPassword()));
@@ -120,6 +134,7 @@ public class MediaUserController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:user:edit')")
     @Log(title = "用户管理" , businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
+    @ApiOperation("状态修改")
     public AjaxResult changeStatus(@RequestBody MediaUser mediaUser) {
         mediaUserService.checkUserAllowed(mediaUser);
         mediaUser.setUpdateBy(SecurityUtils.getUsername());
@@ -131,6 +146,7 @@ public class MediaUserController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('media:user:query')")
     @GetMapping(value = {"/" , "/{userId}"})
+    @ApiOperation("根据用户编号获取详细信息")
     public AjaxResult getInfo(@PathVariable(value = "userId" , required = false) Long userId) {
         return AjaxResult.success(mediaUserService.selectUserById(userId));
     }

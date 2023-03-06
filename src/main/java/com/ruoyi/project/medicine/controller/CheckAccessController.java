@@ -10,6 +10,8 @@ import com.ruoyi.project.medicine.constant.MedicineEum;
 import com.ruoyi.project.medicine.constant.MedicineConstant;
 import com.ruoyi.project.medicine.domain.MedicinePurchase;
 import com.ruoyi.project.medicine.service.CheckAccessService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,7 @@ import java.util.List;
  * @Description
  */
 @RestController
+@Api(tags = "订单审核控制层")
 @RequestMapping("/medicine/check")
 public class CheckAccessController extends BaseController {
 
@@ -35,6 +38,7 @@ public class CheckAccessController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('medicine:check:list')")
     @GetMapping("/list")
+    @ApiOperation("查询采购列表")
     public TableDataInfo list() {
         startPage();
         List<MedicinePurchase> list = checkAccessService.selectMedicinePurchaseList();
@@ -44,6 +48,7 @@ public class CheckAccessController extends BaseController {
     /**
      * 审核通过
      */
+    @ApiOperation("审核通过")
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/auditAccess/{purIds}")
     public AjaxResult AuditAccess(@PathVariable String[] purIds) {
@@ -56,6 +61,7 @@ public class CheckAccessController extends BaseController {
      */
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/submitEntryDB")
+    @ApiOperation("提交入库")
     public AjaxResult submitEntryDB(@RequestBody MedicinePurchase medicinePurchase) {
         if (medicinePurchase.getPurStatus().equals(MedicineEum.SIX)) {
             return AjaxResult.error(MedicineConstant.SUBMIT_DB_REPEATABLE);
@@ -79,6 +85,7 @@ public class CheckAccessController extends BaseController {
      */
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/invalidCheck/{purIds}")
+    @ApiOperation("订单作废")
     public AjaxResult invalidCheck(@PathVariable String[] purIds) {
         return AjaxResult.success(checkAccessService.auditAccess(purIds));
     }

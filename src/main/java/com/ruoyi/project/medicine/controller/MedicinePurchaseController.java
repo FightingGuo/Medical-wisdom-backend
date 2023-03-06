@@ -12,6 +12,8 @@ import com.ruoyi.project.medicine.domain.MedicineInfo;
 import com.ruoyi.project.medicine.domain.MedicinePurchase;
 import com.ruoyi.project.medicine.service.MedicineInfoService;
 import com.ruoyi.project.medicine.service.MedicinePurchaseService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -27,6 +29,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/medicine/purchase")
+@Api(tags = "采购列表控制层")
 public class MedicinePurchaseController extends BaseController {
 
     @Autowired
@@ -43,6 +46,7 @@ public class MedicinePurchaseController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('medicine:purchase:list')")
     @GetMapping("/list")
+    @ApiOperation("查询采购列表")
     public TableDataInfo list(MedicinePurchase medicinePurchase) {
         startPage();
         List<MedicinePurchase> list = medicinePurchaseService.selectMedicinePurchaseList(medicinePurchase);
@@ -54,6 +58,7 @@ public class MedicinePurchaseController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('medicine:purchase:query')")
     @GetMapping(value = "/{purchaseId}")
+    @ApiOperation("根据采购编号获取详细信息")
     public AjaxResult getInfo(@PathVariable String purchaseId) {
 
         return AjaxResult.success(medicinePurchaseService.selectMedicinePurchaseById(purchaseId));
@@ -65,6 +70,7 @@ public class MedicinePurchaseController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:purchase:add')")
     @Log(title = "采购管理", businessType = BusinessType.INSERT)
     @PostMapping
+    @ApiOperation("新增采购")
     public AjaxResult add(@Validated @RequestBody MedicinePurchase medicinePurchase) {
 
         SnowId snowId = new SnowId(medicinePurchase.getMedicineId(), medicinePurchase.getSupplierId(), 2);
@@ -88,6 +94,7 @@ public class MedicinePurchaseController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:purchase:edit')")
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping
+    @ApiOperation("修改保存采购")
     public AjaxResult edit(@Validated @RequestBody MedicinePurchase medicinePurchase) {
         medicinePurchase.setUpdateBy(SecurityUtils.getUsername());
 
@@ -103,6 +110,7 @@ public class MedicinePurchaseController extends BaseController {
      */
     @Log(title = "采购管理", businessType = BusinessType.UPDATE)
     @PutMapping("/submitAudit")
+    @ApiOperation("提交审核")
     public AjaxResult submitAudit(@RequestBody MedicinePurchase medicinePurchase) {
         if (medicinePurchase.getPurStatus().equals("2")) {
             return AjaxResult.error("已处于提交状态！");
@@ -120,6 +128,7 @@ public class MedicinePurchaseController extends BaseController {
     @PreAuthorize("@ss.hasPermi('medicine:purchase:remove')")
     @Log(title = "采购管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{purchaseIds}")
+    @ApiOperation("删除采购")
     public AjaxResult remove(@PathVariable String[] purchaseIds) {
         return toAjax(medicinePurchaseService.deleteMedicinePurchaseByIds(purchaseIds));
     }

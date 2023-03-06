@@ -10,6 +10,8 @@ import com.ruoyi.framework.web.domain.AjaxResult;
 import com.ruoyi.framework.web.page.TableDataInfo;
 import com.ruoyi.project.media.domain.MediaRole;
 import com.ruoyi.project.media.service.MediaRoleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -24,6 +26,7 @@ import java.util.List;
  */
 @RequestMapping("/media/role")
 @RestController
+@Api(tags = "角色管理控制层")
 public class MediaRoleController extends BaseController {
 
     @Autowired
@@ -37,6 +40,7 @@ public class MediaRoleController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('media:role:list')")
     @GetMapping("/list")
+    @ApiOperation("查询角色列表")
     public TableDataInfo list(MediaRole role) {
         startPage();
         List<MediaRole> list = mediaRoleService.selectRoleList(role);
@@ -52,6 +56,7 @@ public class MediaRoleController extends BaseController {
     @Log(title = "角色管理", businessType = BusinessType.EXPORT)
     @PreAuthorize("@ss.hasPermi('media:role:export')")
     @GetMapping("/export")
+    @ApiOperation("导出角色")
     public AjaxResult export(MediaRole role) {
         List<MediaRole> list = mediaRoleService.selectRoleList(role);
         ExcelUtil<MediaRole> util = new ExcelUtil<MediaRole>(MediaRole.class);
@@ -63,6 +68,7 @@ public class MediaRoleController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('media:role:query')")
     @GetMapping(value = "/{roleId}")
+    @ApiOperation("根据角色编号获取详细信息")
     public AjaxResult getInfo(@PathVariable Long roleId) {
         return AjaxResult.success(mediaRoleService.selectRoleById(roleId));
     }
@@ -73,10 +79,11 @@ public class MediaRoleController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:role:add')")
     @Log(title = "角色管理", businessType = BusinessType.INSERT)
     @PostMapping
+    @ApiOperation("新增角色")
     public AjaxResult add(@Validated @RequestBody MediaRole role) {
         if (null != mediaRoleService.checkRoleNameUnique(role.getRoleName())) {
             return AjaxResult.error("新增角色'" + role.getRoleName() + "'失败，角色名称已存在");
-        } else if (null !=mediaRoleService.checkRoleAuthUnique(role.getRoleAuth())) {
+        } else if (null != mediaRoleService.checkRoleAuthUnique(role.getRoleAuth())) {
             return AjaxResult.error("新增角色'" + role.getRoleName() + "'失败，角色权限已存在");
         }
         role.setCreateBy(SecurityUtils.getUsername());
@@ -90,6 +97,7 @@ public class MediaRoleController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:role:edit')")
     @Log(title = "角色管理", businessType = BusinessType.UPDATE)
     @PutMapping
+    @ApiOperation("修改保存角色")
     public AjaxResult edit(@Validated @RequestBody MediaRole role) {
         mediaRoleService.checkRoleAllowed(role);
         if (UserConstants.NOT_UNIQUE.equals(mediaRoleService.checkRoleNameUnique(role.getRoleName()))) {
@@ -112,6 +120,7 @@ public class MediaRoleController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:role:edit')")
     @Log(title = "角色管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
+    @ApiOperation("状态修改")
     public AjaxResult changeStatus(@RequestBody MediaRole role) {
         mediaRoleService.checkRoleAllowed(role);
         role.setUpdateBy(SecurityUtils.getUsername());
@@ -124,8 +133,8 @@ public class MediaRoleController extends BaseController {
     @PreAuthorize("@ss.hasPermi('media:role:remove')")
     @Log(title = "角色管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{roleIds}")
+    @ApiOperation("删除角色")
     public AjaxResult remove(@PathVariable Long[] roleIds) {
         return toAjax(mediaRoleService.deleteRoleByIds(roleIds));
     }
-
 }
