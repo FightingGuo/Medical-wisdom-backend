@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.4'
 
 services:
   mircroService:
@@ -25,8 +25,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6381/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6381/data:/data
+      - /opt/docker/redis-cluster/redis-6381/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6381/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6381:6381"
       - "16381:16381"
@@ -44,8 +46,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6382/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6382/data:/data
+      - /opt/docker/redis-cluster/redis-6382/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6382/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6382:6382"
       - "16382:16382"
@@ -62,8 +66,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6383/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6383/data:/data
+      - /opt/docker/redis-cluster/redis-6383/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6383/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6383:6383"
       - "16383:16383"
@@ -80,8 +86,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6384/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6384/data:/data
+      - /opt/docker/redis-cluster/redis-6384/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6384/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6384:6384"
       - "16384:16384"
@@ -98,8 +106,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6385/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6385/data:/data
+      - /opt/docker/redis-cluster/redis-6385/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6385/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6385:6385"
       - "16385:16385"
@@ -116,8 +126,10 @@ services:
     command:
       ["redis-server", "/etc/redis.conf"]
     volumes:
-      - ./redis-6386/conf/redis.conf:/usr/local/etc/redis/redis.conf
-      - ./redis-6386/data:/data
+      - /opt/docker/redis-cluster/redis-6386/conf/redis.conf:/etc/redis.conf
+      - /opt/docker/redis-cluster/redis-6386/data:/data
+    networks:
+      guohc_net:
     ports:
       - "6386:6386"
       - "16386:16386"
@@ -130,20 +142,24 @@ services:
 
   mysql:
     image: mysql:5.7
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: '442520'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
-      MYSQL_DATABASE: 'medical'
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/conf/my.cnf:/etc/my.cnf
-      - ./mysql/db:/var/lib/mysql
-      - ./mysql/init:/docker-entrypoint-initdb.d
+      - /opt/docker/mysql/conf/my.cnf:/etc/my.cnf
+      - /opt/docker/mysql/db:/var/lib/mysql
+      - /opt/mysql/init/media.sql:/docker-entrypoint-initdb.d/media.sql
     networks:
       guohc_net:
-    command: --default-authentication-plugin=mysql_native_password
-
+    command:
+      --max_connections=1000
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --default-authentication-plugin=mysql_native_password
+      --source /docker-entrypoint-initdb.d/media.sql
 networks:
   guohc_net:
     external: true
