@@ -128,6 +128,22 @@ services:
         max-size: '100m'
         max-file: '10'
 
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: '442520'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+      MYSQL_DATABASE: 'medical'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf/my.cnf:/etc/my.cnf
+      - ./mysql/db:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      guohc_net:
+    command: --default-authentication-plugin=mysql_native_password
+
 networks:
   guohc_net:
     external: true
