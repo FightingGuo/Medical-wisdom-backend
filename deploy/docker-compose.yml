@@ -1,0 +1,133 @@
+version: '3.7'
+
+services:
+  mircroService:
+    image: medical:1.0
+    container_name: medicalApplication
+    ports:
+      - "8080:8080"
+    volumes:
+      - /opt/docker/medical/data:/data
+    networks:
+      - guohc_net
+    depends_on:
+      - redis6381
+      - redis6382
+      - redis6383
+      - redis6384
+      - redis6385
+      - redis6386
+      - mysql
+
+  redis6381:
+    image: redis
+    container_name: redis6381
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6381/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6381/data:/data
+    ports:
+      - "6381:6381"
+      - "16381:16381"
+    environment:
+      # 设置时区为上海，否则时间会有问题
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  redis6382:
+    image: redis
+    container_name: redis6383
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6382/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6382/data:/data
+    ports:
+      - "6382:6382"
+      - "16382:16382"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  redis6383:
+    image: redis
+    container_name: redis6383
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6383/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6383/data:/data
+    ports:
+      - "6383:6383"
+      - "16383:16383"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  redis6384:
+    image: redis
+    container_name: redis6384
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6384/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6384/data:/data
+    ports:
+      - "6384:6384"
+      - "16384:16384"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  redis6385:
+    image: redis
+    container_name: redis6385
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6385/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6385/data:/data
+    ports:
+      - "6385:6385"
+      - "16385:16385"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+  redis6386:
+    image: redis
+    container_name: redis6386
+    command:
+      ["redis-server", "/etc/redis.conf"]
+    volumes:
+      - ./redis-6386/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-6386/data:/data
+    ports:
+      - "6386:6386"
+      - "16386:16386"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '10'
+
+networks:
+  guohc_net:
+    external: true
