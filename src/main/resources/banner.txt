@@ -1,4 +1,4 @@
-Application Version: ${ruoyi.version}
+Application Version: ${ghc.version}
 Spring Boot Version: ${spring-boot.version}
                     | |		                 | |
   __ _ _   _  ___   | |__   __ _  ___     ___| |__   ___ _ __

@@ -25,14 +25,14 @@
 19. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
 
 
-演示地址：http://vue.ruoyi.vip
-文档地址：http://doc.ruoyi.vip
+演示地址：http://vue.ghc.vip
+文档地址：http://doc.ghc.vip
 
 ## 演示图
 
 <table>
     <tr>
-        <td><img src="https://github.com/FightingGuo/ruoyi-backend/blob/master/image/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.png"/></td>
+        <td><img src="https://github.com/FightingGuo/ghc-backend/blob/master/image/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2.png"/></td>
     </tr>
     <tr>
         <td><img src="https://github.com/FightingGuo/Medical-wisdom-backend/blob/master/image/%E7%B3%BB%E7%BB%9F%E9%A6%96%E9%A1%B5.png"/></td>

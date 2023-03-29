@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.media.mapper.MediaDeptMapper">
+<mapper namespace="com.ghc.project.media.mapper.MediaDeptMapper">
 
     <resultMap type="MediaDept" id="MediaDeptResult">
         <id property="deptId" column="dept_id"/>
@@ -39,7 +39,7 @@
         <include refid="selectDeptVo"/>
         <where>
             <if test="deptName != null and deptName != ''">
-                AND dept_name like concat('%', #{deptName}, '%')
+                dept_name like concat('%', #{deptName}, '%')
             </if>
             <if test="status != null and status != ''">
                 AND status = #{status}
@@ -88,7 +88,8 @@
 
     <update id="updateDept" parameterType="MediaDept">
         update media_dept
-        <set>
+            00
+ 0       <set>
             <if test="deptId != null and deptId != 0">dept_id=#{deptId},</if>
             <if test="deptCode != null and deptCode != ''">dept_code=#{deptCode},</if>
             <if test="deptName != null and deptName != ''">dept_name=#{deptName},</if>

@@ -1,15 +1,15 @@
 # 项目相关配置
-ruoyi:
+ghc:
   # 名称
-  name: RuoYi
+  name: ghc
   # 版本
   version: 3.4.0
   # 版权年份
   copyrightYear: 2021
   # 实例演示开关
   demoEnabled: true
-  # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: D:/home/ruoyi/uploadPath
+  # 文件路径 示例（ Windows配置D:/ghc/uploadPath，Linux配置 /home/ghc/uploadPath）
+  profile: D:/home/ghc/uploadPath
   # 获取ip地址开关
   addressEnabled: false
   # 验证码类型 math 数组计算 char 字符验证
@@ -33,7 +33,7 @@ server:
 # 日志配置
 logging:
   level:
-    com.ruoyi: debug
+    com.ghc: debug
     org.springframework: warn
 
 # Spring配置
@@ -59,13 +59,14 @@ spring:
   # redis 配置
   redis:
     # 地址
-    cluster:
-      nodes: redis6381,redis6382,redis6383,redis6384,redis6385,redis6386
-    #    host: localhost
+#    cluster:
+#      nodes: redis6381:6381,redis6382:6382,redis6383:6383,redis6384:6384,redis6385:6385,redis6386:6386
+    # 地址
+    host: 192.168.233.3
     # 端口，默认为6379
-#    port: 6379
+    port: 6379
     # 数据库索引
-#    database: 0
+    database: 0
     # 密码
 #    password:
     # 连接超时时间
@@ -93,7 +94,7 @@ token:
 # MyBatis配置
 mybatis:
   # 搜索指定包别名
-  typeAliasesPackage: com.ruoyi.project.**.domain
+  typeAliasesPackage: com.ghc.project.**.domain
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mybatis/**/*Mapper.xml
   # 加载全局的配置文件
@@ -125,9 +126,9 @@ xss:
 # 代码生成
 gen:
   # 作者
-  author: ruoyi
+  author: ghc
   # 默认生成包路径 system 需改成自己的模块名称 如 system monitor tool
-  packageName: com.ruoyi.project.system
+  packageName: com.ghc.project.system
   # 自动去除表前缀，默认是true
   autoRemovePre: false
   # 表前缀（生成类名不会包含表前缀，多个用逗号分隔）
