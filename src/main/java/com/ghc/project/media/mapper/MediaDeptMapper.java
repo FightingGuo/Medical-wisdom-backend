@@ -1,5 +1,6 @@
 package com.ghc.project.media.mapper;
 
+import com.ghc.project.media.domain.MediaDeptAndUser;
 import com.ghc.project.media.domain.MediaDeptList;
 import com.ghc.project.media.domain.MediaDept;
 
@@ -49,6 +50,6 @@ public interface MediaDeptMapper {
     /**
      * 获取科室的id和name
      */
-    List<MediaDeptList> getDeptList();
+    List<MediaDeptAndUser> getDeptList();
 }
 

@@ -187,4 +187,16 @@
         </foreach>
     </delete>
 
+
+    <resultMap id="MediaUserListResult" type="MediaUserList">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="deptId" column="dept_id"/>
+    </resultMap>
+
+    <select id="queryMediaUserList" resultMap="MediaUserListResult">
+        select user_name, user_id, dept_id
+        from media_user
+    </select>
+
 </mapper>
