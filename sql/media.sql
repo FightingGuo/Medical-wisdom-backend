@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 29/03/2023 15:48:46
+ Date: 31/03/2023 16:44:22
 */
 
 SET NAMES utf8mb4;
@@ -173,7 +173,7 @@ CREATE TABLE `QRTZ_SCHEDULER_STATE`  (
 -- ----------------------------
 -- Records of QRTZ_SCHEDULER_STATE
 -- ----------------------------
-INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('ghcScheduler', '郭昊晨1679995050047', 1680076122122, 15000);
+INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('ghcScheduler', '郭昊晨1680249702639', 1680252255448, 15000);
 INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', '郭昊晨1679965525609', 1679994736309, 15000);
 
 -- ----------------------------
@@ -251,9 +251,9 @@ CREATE TABLE `QRTZ_TRIGGERS`  (
 -- ----------------------------
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1679995050000, -1, 5, 'PAUSED', 'CRON', 1679995050000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1679995050000, -1, 5, 'PAUSED', 'CRON', 1679995050000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1679995060000, -1, 5, 'PAUSED', 'CRON', 1679995050000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1680249710000, -1, 5, 'PAUSED', 'CRON', 1680249702000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1680249705000, -1, 5, 'PAUSED', 'CRON', 1680249702000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('ghcScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1680249720000, -1, 5, 'PAUSED', 'CRON', 1680249702000, 0, NULL, 2, '');
 INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1679965530000, -1, 5, 'PAUSED', 'CRON', 1679965525000, 0, NULL, 2, '');
 INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1679965530000, -1, 5, 'PAUSED', 'CRON', 1679965525000, 0, NULL, 2, '');
 INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1679965540000, -1, 5, 'PAUSED', 'CRON', 1679965525000, 0, NULL, 2, '');
@@ -318,7 +318,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -358,7 +358,7 @@ INSERT INTO `media_dept` VALUES (7, '心内科', 'HIS-XK', 1, '孙大夫', '1861
 INSERT INTO `media_dept` VALUES (8, '血液科', 'HIS-XYK', 1, '雷大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 10);
 INSERT INTO `media_dept` VALUES (9, '放射科', 'HIS-FSK', 1, '卢大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 12);
 INSERT INTO `media_dept` VALUES (10, '化验科', 'HIS-HSK', 1, '余大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-04 01:05:47', '', 11);
-INSERT INTO `media_dept` VALUES (11, '精神内科', 'HIS-SJNK', 1, '佘大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-09 23:54:41', '', 9);
+INSERT INTO `media_dept` VALUES (11, '神经内科', 'HIS-SJNK', 1, '佘大夫', '18612345678', '0', 'admin', '2023-01-04 01:05:47', 'admin', '2023-01-09 23:54:41', '', 9);
 INSERT INTO `media_dept` VALUES (12, '神经外科', 'HIS-SJWK', 1, '严大夫', '13842987453', '0', 'admin', '2023-01-09 23:54:23', 'admin', '2023-02-03 16:56:50', NULL, 8);
 INSERT INTO `media_dept` VALUES (13, '耳鼻喉科', 'HIS-EBH', 0, '郭大夫', '15898456247', '0', 'admin', '2023-01-10 19:14:59', 'admin', '2023-01-04 01:05:47', NULL, 14);
 
@@ -378,7 +378,7 @@ CREATE TABLE `media_notice`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `update_by` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新者',
   PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of media_notice
@@ -644,25 +644,26 @@ INSERT INTO `medicine_supplier` VALUES (6, '长春高新创投集团', '陈XX', 
 -- ----------------------------
 DROP TABLE IF EXISTS `patient_info`;
 CREATE TABLE `patient_info`  (
-  `patient_id` bigint NOT NULL COMMENT '患者id',
-  `patient_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '患者信息',
+  `patient_id` bigint NOT NULL AUTO_INCREMENT COMMENT '患者id',
+  `patient_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '患者姓名',
   `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '患者电话',
   `patient_card` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '身份证号',
-  `sex` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '患者性别 0男 1女 2未知',
+  `sex` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '患者性别',
   `birthday` date NULL DEFAULT NULL COMMENT '出生年月',
   `age` int NULL DEFAULT NULL COMMENT '年龄',
   `addr` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址信息',
   `delflag` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否 0存在 1删除',
-  `create_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `create_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `update_by` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新人',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`patient_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of patient_info
 -- ----------------------------
+INSERT INTO `patient_info` VALUES (1, '患者A', '13542658742', '350881200104163548', '女', '2023-03-30', 21, '地址dsqpoweqweqweqwe', '0', '1', '2023-03-30 11:42:36', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for register
@@ -670,13 +671,15 @@ CREATE TABLE `patient_info`  (
 DROP TABLE IF EXISTS `register`;
 CREATE TABLE `register`  (
   `id` bigint NOT NULL COMMENT '主键id（流水号）',
-  `patient_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '患者姓名',
-  `dept_id` bigint NULL DEFAULT NULL COMMENT '科室id',
+  `dept_id` bigint NOT NULL COMMENT '科室id',
+  `patient_id` bigint NULL DEFAULT NULL COMMENT '患者id',
+  `user_id` bigint NOT NULL COMMENT '接诊医生id',
   `register_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '挂号费用',
   `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '挂号状态 0：就诊完成 1：就诊中 2：未就诊',
   `register_time` datetime NULL DEFAULT NULL COMMENT '挂号日期',
-  `register_type` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '挂号类型：0：门诊  1：急诊',
+  `register_type` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '挂号类型：0：门诊  1：急诊 2：住院',
   `register_schedule` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '挂号时间段 0：上午 1：下午 2：晚上',
+  `count` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '流水号',
   `create_uesr` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   `update_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新人',
@@ -687,6 +690,25 @@ CREATE TABLE `register`  (
 -- ----------------------------
 -- Records of register
 -- ----------------------------
+INSERT INTO `register` VALUES (1, 10, 1, 4, 6.00, '0', '2023-03-30 11:46:39', '0', '0', '1', '1', '2023-03-30 11:46:49', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for register_price
+-- ----------------------------
+DROP TABLE IF EXISTS `register_price`;
+CREATE TABLE `register_price`  (
+  `id` int NOT NULL COMMENT '主键',
+  `register_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `register_price` decimal(10, 2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of register_price
+-- ----------------------------
+INSERT INTO `register_price` VALUES (1, '门诊', 10.00);
+INSERT INTO `register_price` VALUES (2, '急诊', 20.00);
+INSERT INTO `register_price` VALUES (3, '住院', 100.00);
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -889,7 +911,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -910,7 +932,7 @@ CREATE TABLE `sys_logininfor`  (
   `msg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '提示消息',
   `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 275 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 285 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -1090,6 +1112,21 @@ INSERT INTO `sys_logininfor` VALUES (271, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (272, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码已失效', '2023-03-29 15:27:55');
 INSERT INTO `sys_logininfor` VALUES (273, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2023-03-29 15:34:54');
 INSERT INTO `sys_logininfor` VALUES (274, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-29 15:34:56');
+INSERT INTO `sys_logininfor` VALUES (275, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-29 16:11:51');
+INSERT INTO `sys_logininfor` VALUES (276, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-29 17:38:05');
+INSERT INTO `sys_logininfor` VALUES (277, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 08:54:49');
+INSERT INTO `sys_logininfor` VALUES (278, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 09:54:52');
+INSERT INTO `sys_logininfor` VALUES (279, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 14:04:45');
+INSERT INTO `sys_logininfor` VALUES (280, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 16:59:04');
+INSERT INTO `sys_logininfor` VALUES (281, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 17:03:44');
+INSERT INTO `sys_logininfor` VALUES (282, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 17:10:19');
+INSERT INTO `sys_logininfor` VALUES (283, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-30 17:46:40');
+INSERT INTO `sys_logininfor` VALUES (284, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 09:52:31');
+INSERT INTO `sys_logininfor` VALUES (285, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 11:14:20');
+INSERT INTO `sys_logininfor` VALUES (286, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 12:29:13');
+INSERT INTO `sys_logininfor` VALUES (287, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 13:38:53');
+INSERT INTO `sys_logininfor` VALUES (288, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 14:05:27');
+INSERT INTO `sys_logininfor` VALUES (289, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2023-03-31 15:10:05');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -1279,7 +1316,7 @@ CREATE TABLE `sys_notice`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '通知公告表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '通知公告表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_notice
@@ -1721,7 +1758,7 @@ CREATE TABLE `sys_post`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_post
