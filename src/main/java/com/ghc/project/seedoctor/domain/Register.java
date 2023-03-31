@@ -1,8 +1,13 @@
 package com.ghc.project.seedoctor.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ghc.framework.web.domain.BaseEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -11,22 +16,45 @@ import java.sql.Timestamp;
  * @Description
  */
 @Data
-public class Register {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Register extends BaseEntity {
 
     /**
-     * 流水号
+     * 主键
      */
     private Long id;
 
     /**
      * 患者姓名
      */
-    private Long patientName;
+    private String patientName;
+
+    /**
+     * 患者id
+     */
+    private Long patientId;
+
 
     /**
      * 挂号的科室id
      */
     private Long deptId;
+
+    /**
+     * 科室名称
+     */
+    private String deptName;
+
+    /**
+     * 接诊医生的id
+     */
+    private Long userId;
+
+    /**
+     * 接诊医生的姓名
+     */
+    private String userName;
 
     /**
      * 挂号费用
@@ -39,9 +67,16 @@ public class Register {
     private String status;
 
     /**
+     * 流水号
+     */
+    private String count;
+
+
+    /**
      * 挂号时间
      */
-    private Timestamp registerTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date registerTime;
 
     /**
      * 挂号类型：0：门诊  1：急诊

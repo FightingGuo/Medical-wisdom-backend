@@ -11,9 +11,9 @@ import java.util.List;
  */
 public interface PatientInfoMapper {
 
-    List<PatientInfo> getPatient( PatientInfo patientInfo);
+    List<PatientInfo> getPatient(PatientInfo patientInfo);
 
-    PatientInfo getPatientInfoByCardID(String cardId);
+    PatientInfo getPatientInfoByCardID(String patientCard);
 
     Long addPatientInfo(PatientInfo patientInfo);
 }

@@ -12,9 +12,9 @@
         <result property="birthday" column="birthday"/>
         <result property="age" column="age"/>
         <result property="delFlag" column="delflag"/>
-        <result property="createUser" column="create_user"/>
+        <result property="createBy" column="create_by"/>
         <result property="createTime" column="create_time"/>
-        <result property="updateUser" column="update_user"/>
+        <result property="updateBy" column="update_by"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
@@ -22,7 +22,7 @@
     <select id="getPatientInfoByCardID" resultMap="PatientResult">
         select *
         from patient_info
-        where patient_card = #{cardId}
+        where patient_card = #{patientCard}
     </select>
 
     <insert id="addPatientInfo">
@@ -35,12 +35,12 @@
         <if test="addr != null and addr !=''">addr</if>
         <if test="createTime != null and createTime !=''">createTime</if>
         )values (
-        <if test="patientName != null and patientName !=''">#{patientInfo.patientName},</if>
-        <if test="patientCard != null and patientCard !=''">#{patientInfo.patientCard},</if>
-        <if test="sex != null and sex !=''">#{patientInfo.sex},</if>
-        <if test="birthday != null and birthday !=''">#{patientInfo.birthday},</if>
-        <if test="age != null and age !=''">#{patientInfo.age},</if>
-        <if test="addr != null and addr !=''">#{patientInfo.addr},</if>
+        <if test="patientName != null and patientName !=''">#{patientName},</if>
+        <if test="patientCard != null and patientCard !=''">#{patientCard},</if>
+        <if test="sex != null and sex !=''">#{sex},</if>
+        <if test="birthday != null and birthday !=''">#{birthday},</if>
+        <if test="age != null and age !=''">#{age},</if>
+        <if test="addr != null and addr !=''">#{addr},</if>
         sysdate()
         )
     </insert>
@@ -50,13 +50,13 @@
         from patient_info
         where delflag = '0'
         <if test="patientName != null and patientName != '' ">
-            and patient_name = #{patientInfo.patientName}
+            and patient_name like concat('%', #{patientName}, '%')
         </if>
         <if test="phone != null and phone != '' ">
-            and phone = #{patientInfo.phone}
+            and phone = #{phone}
         </if>
         <if test="patientCard != null and patientCard != '' ">
-            and patient_card = #{patientInfo.patientCard}
+            and patient_card = #{patientCard}
         </if>
     </select>
 </mapper>

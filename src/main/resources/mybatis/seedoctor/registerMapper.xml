@@ -4,31 +4,61 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ghc.project.seedoctor.mapper.RegisterMapper">
 
-    <select id="getRegister" resultType="com.ghc.project.seedoctor.domain.Register">
-        select * from register
+    <resultMap id="RegisterResult" type="Register">
+        <id property="id" column="id"/>
+        <result property="patientId" column="pa"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="userId" column="user_id"/>
+        <result property="patientName" column="patient_name"/>
+        <result property="registerPrice" column="register_price"/>
+        <result property="status" column="status"/>
+        <result property="registerTime" column="register_time"/>
+        <result property="registerType" column="register_type"/>
+        <result property="registerSchedule" column="register_schedule"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+
+    <select id="getRegister" resultMap="RegisterResult">
+        select r.id, r.dept_id, p.patient_name, d.dept_name, u.user_name, r.register_price, r.status, r.register_time, r.register_type,
+        r.register_schedule
+        from register r
+        left join media_dept d on d.dept_id = r.dept_id
+        left join media_user u on u.user_id = r.user_id
+        left join patient_info p on p.patient_id = r.patient_id
         <where>
             <if test="deptId != null and deptId != 0 ">
-                dept_id = #{deptId}
+                r.dept_id = #{deptId}
             </if>
             <if test="patientName != null and patientName != '' ">
-                and patient_name like  concat('%',#{patientName},'%')
+                and p.patient_name like  concat('%',#{patientName},'%')
             </if>
             <if test="registerType !=null and registerType != '' ">
-                and register_type = #{registerType}
+                and r.register_type = #{registerType}
             </if>
-            <if test="registerSchedule != null and registerSchedule != '' ">
-                and register_schedule = #{registerSchedule}
+            <if test="registerSchedule != null and registerSchedule != 0 ">
+                and r.register_schedule = #{registerSchedule}
             </if>
-            <if test="status != null and status != '' ">
-                and status = #{status}
-            </if>
-            <if test="registerSchedule != null and registerSchedule != '' ">
-                and register_schedule = #{registerSchedule}
+            <if test="status != null and status != 0 ">
+                and r.status = #{status}
             </if>
             <if test="registerTime != null and registerTime != '' ">
-                and register_time = #{registerTime}
+                and r.register_time = #{registerTime}
             </if>
         </where>
+    </select>
+
+
+    <resultMap id="registerPriceResult" type="registerPrice">
+        <id property="id" column="id"/>
+        <result property="registerName" column="register_name"/>
+        <result property="registerPrice" column="register_price"/>
+    </resultMap>
+
+    <select id="getRegisterPrice" resultMap="registerPriceResult">
+        select *
+        from register_price
+        where register_name = #{registerName}
     </select>
 
 

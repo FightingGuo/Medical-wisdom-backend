@@ -1,5 +1,6 @@
 package com.ghc.project.seedoctor.service;
 
+import com.ghc.framework.web.domain.AjaxResult;
 import com.ghc.project.seedoctor.domain.PatientInfo;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface PatientInfoService {
 
     List<PatientInfo> getPatient(PatientInfo patientInfo);
 
-    PatientInfo selectPatientInfoByCardId(String cardId);
+    AjaxResult selectPatientInfoByCardId(String patientCard);
 
-    Long addPatientInfo(PatientInfo patientInfo);
+    AjaxResult addPatientInfo(PatientInfo patientInfo);
 }
