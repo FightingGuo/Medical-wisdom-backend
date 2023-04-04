@@ -22,11 +22,38 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     public static String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 
     public static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+
+    public static final String yyyyMMdd = "yyyyMMdd";
     
     private static String[] parsePatterns = {
             "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", 
             "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM",
             "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"};
+
+
+    /**
+     * String转Date
+     *
+     * @param date string 类型的日期
+     * @param format
+     * @return
+     */
+    public static Date stringToDate(String date,String format){
+        Date parse=null;
+
+        if (StringUtils.isEmpty(date)){
+            return parse;
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat();
+
+        try {
+            dateFormat.parse(date);
+        } catch (ParseException e) {
+
+        }
+        return parse;
+    }
 
     /**
      * 获取当前Date型日期
