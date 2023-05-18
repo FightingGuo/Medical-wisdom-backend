@@ -79,6 +79,4 @@ public class PatentInfoController extends BaseController {
     public AjaxResult addInfo(@Validated @RequestBody PatientInfo patientInfo) {
         return AjaxResult.success(patientInfoService.addPatientInfo(patientInfo));
     }
-
-
 }

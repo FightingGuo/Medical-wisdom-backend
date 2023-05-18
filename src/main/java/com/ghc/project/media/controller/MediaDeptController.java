@@ -14,6 +14,7 @@ import com.ghc.framework.web.controller.BaseController;
 import com.ghc.framework.web.domain.AjaxResult;
 import com.ghc.framework.web.page.TableDataInfo;
 import com.ghc.project.media.domain.MediaDept;
+import com.ghc.project.media.domain.MediaUserDTO;
 import com.ghc.project.media.service.MediaDeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -90,9 +91,22 @@ public class MediaDeptController extends BaseController {
         return AjaxResult.success(mediaDeptService.selectDeptById(deptId));
     }
 
+    /**
+     * 获取科室下拉数据
+     * @return
+     */
     @GetMapping("/getDeptList")
     public AjaxResult getDeptList() {
         return AjaxResult.success(mediaDeptService.getDeptList());
+    }
+
+    /**
+     * 获取医生/科室数据
+     * @return
+     */
+    @GetMapping("/getDeptAndUserList")
+    public AjaxResult getDeptAndUserList(MediaUserDTO mediaUser){
+        return AjaxResult.success(mediaDeptService.getDeptAndUserList(mediaUser));
     }
 }
 

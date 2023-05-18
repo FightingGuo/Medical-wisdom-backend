@@ -16,4 +16,6 @@ public interface PatientInfoMapper {
     PatientInfo getPatientInfoByCardID(String patientCard);
 
     Long addPatientInfo(PatientInfo patientInfo);
+
+    Long updatePatientInfo(PatientInfo patientInfo);
 }

@@ -23,6 +23,7 @@ public class Register extends BaseEntity {
     /**
      * 主键
      */
+
     private Long id;
 
     /**
@@ -67,16 +68,9 @@ public class Register extends BaseEntity {
     private String status;
 
     /**
-     * 流水号
-     */
-    private String count;
-
-
-    /**
      * 挂号时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date registerTime;
+    private String registerTime;
 
     /**
      * 挂号类型：0：门诊  1：急诊

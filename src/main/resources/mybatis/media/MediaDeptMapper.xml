@@ -104,18 +104,13 @@
         where dept_id = #{deptId}
     </update>
 
-
-    <resultMap type="MediaDeptAndUser" id="MediaDeptAndUserResult">
-        <id property="deptId" column="dept_id"/>
-        <result property="deptName" column="dept_name"/>
-    </resultMap>
-
-    <select id="getDeptList" resultMap="MediaDeptAndUserResult">
-        select d.dept_id, d.dept_name
+    <select id="getDeptList" resultType="com.ghc.project.media.domain.MediaDeptList">
+        select d.dept_id as deptId,
+               d.dept_name as deptName
         from media_dept d;
     </select>
 
-    <select id="getDeptListAndUser" resultType="com.ghc.project.media.domain.MediaUserList">
+    <select id="getDeptListAndUser" resultType="com.ghc.project.media.domain.MediaUserDTO">
         select u.user_id, u.user_name
         from media_user u
         where u.dept_id = #{id}

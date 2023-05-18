@@ -1,8 +1,7 @@
 package com.ghc.project.media.mapper;
 
-import com.ghc.project.media.domain.MediaDeptAndUser;
 import com.ghc.project.media.domain.MediaUser;
-import com.ghc.project.media.domain.MediaUserList;
+import com.ghc.project.media.domain.MediaUserDTO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -105,8 +104,8 @@ public interface MediaUserMapper {
     MediaUser checkPhoneUnique(String phonenumber);
 
     /**
-     * 查所有医师
+     * 查所有医师和关联的科室
      * @return
      */
-    List<MediaUserList> queryMediaUserList();
+    List<MediaUserDTO> queryMediaUserList(Long deptId);
 }

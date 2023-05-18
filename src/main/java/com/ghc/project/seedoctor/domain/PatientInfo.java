@@ -57,8 +57,7 @@ public class PatientInfo extends BaseEntity {
     /**
      * 出生年月
      */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date birthday;
+    private String birthday;
 
     /**
      * 年龄

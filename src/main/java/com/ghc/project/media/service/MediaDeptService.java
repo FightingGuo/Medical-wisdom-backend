@@ -1,8 +1,8 @@
 package com.ghc.project.media.service;
 
-import com.ghc.project.media.domain.MediaDeptAndUser;
 import com.ghc.project.media.domain.MediaDeptList;
 import com.ghc.project.media.domain.MediaDept;
+import com.ghc.project.media.domain.MediaUserDTO;
 
 import java.util.List;
 
@@ -18,9 +18,14 @@ public interface MediaDeptService {
     int updateDept(MediaDept mediaDept);
 
     /**
+     * 科室  医生  信息
+     * @return
+     */
+    List<MediaUserDTO> getDeptAndUserList(MediaUserDTO mediaUser);
+
+    /**
      * 获取科室的id和name
      * @return
      */
-    List<MediaDeptAndUser> getDeptList();
-
+    List<MediaDeptList> getDeptList();
 }

@@ -5,13 +5,10 @@ import com.ghc.project.media.domain.*;
 import com.ghc.project.media.mapper.MediaDeptMapper;
 import com.ghc.project.media.mapper.MediaUserMapper;
 import com.ghc.project.media.service.MediaDeptService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class MediaDeptServiceImpl implements MediaDeptService {
@@ -21,10 +18,10 @@ public class MediaDeptServiceImpl implements MediaDeptService {
      *
      * 如果希望调用其他人开发的模块，只能注入其他人写的service。
      */
-    @Autowired
+    @Resource
     private MediaDeptMapper mediaDeptMapper;
 
-    @Autowired
+    @Resource
     private MediaUserMapper mediaUserMapper;
 
     @Override
@@ -57,26 +54,18 @@ public class MediaDeptServiceImpl implements MediaDeptService {
      * @return
      */
     @Override
-    public List<MediaDeptAndUser> getDeptList() {
-        //查出所有科室  id:name
-        List<MediaDeptAndUser> mediaDeptMapperDeptList = mediaDeptMapper.getDeptList();
+    public List<MediaUserDTO> getDeptAndUserList(MediaUserDTO mediaUser) {
 
-        //把科室根据科室id放map里
-        Map<Long, MediaDeptAndUser> map = mediaDeptMapperDeptList.stream().collect(Collectors.toMap(MediaDeptAndUser::getDeptId, MediaDeptAndUser -> MediaDeptAndUser));
+        List<MediaUserDTO> mediaUserDTOS = mediaUserMapper.queryMediaUserList(mediaUser.getDeptId());
 
+        return mediaUserDTOS;
+    }
 
-        //查询所有医师  user_id:user_name:dept_id
-        List<MediaUserList> mediaUserLists = mediaUserMapper.queryMediaUserList();
-
-        //把医师对应的dept_id 挂入对应科室
-        for (MediaUserList item:mediaUserLists){
-            if (null != map.get(item.getDeptId())){
-                MediaDeptAndUser mediaDeptAndUser = map.get(item.getDeptId());
-                mediaDeptAndUser.getMediaUserLists().add(item);
-                map.put(item.getDeptId(),mediaDeptAndUser);
-            }
-        }
-
-        return mediaDeptMapperDeptList;
+    /**
+     * 获取科室名称:科室id
+     * @return
+     */
+    public List<MediaDeptList> getDeptList() {
+        return mediaDeptMapper.getDeptList();
     }
 }

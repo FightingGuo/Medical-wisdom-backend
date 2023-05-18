@@ -27,6 +27,9 @@ public class MediaUser extends BaseEntity {
     @Excel(name = "部门id")
     private Long deptId;
 
+    @Excel(name = "挂号数")
+    private Long count;
+
     /** 密码 */
     @Excel(name = "密码")
     @NotBlank(message = "密码不能为空")

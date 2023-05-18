@@ -2,6 +2,7 @@ package com.ghc.project.seedoctor.service;
 
 import com.ghc.framework.web.domain.AjaxResult;
 import com.ghc.project.seedoctor.domain.Register;
+import com.ghc.project.seedoctor.domain.dto.RegisterDTO;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface RegisterService {
     List<Register> getRegister(Register register);
 
     AjaxResult getRegisterPrice(String registerName);
+
+    AjaxResult saveRegister(RegisterDTO register);
 }

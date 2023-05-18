@@ -74,7 +74,7 @@ public class MedicinePurchaseController extends BaseController {
     public AjaxResult add(@Validated @RequestBody MedicinePurchase medicinePurchase) {
 
         SnowId snowId = new SnowId(medicinePurchase.getMedicineId(), medicinePurchase.getSupplierId(), 2);
-        String purId = (String) "CG" + snowId.nextId();
+        String purId = "CG" + snowId.nextId();
         medicinePurchase.setPurId(purId);
         medicinePurchase.setCreateBy(SecurityUtils.getUsername());
 
@@ -84,6 +84,7 @@ public class MedicinePurchaseController extends BaseController {
         medicineInfo.setStock(medicinePurchase.getPurCount()+medicineInfo.getStock());
         medicineInfo.setMedicineId(medicinePurchase.getMedicineId());
         medicineInfoService.updateMedicineInfo(medicineInfo);
+        //新增采购  采购状态默认为1  在数据库设置了默认值
 
         return toAjax(medicinePurchaseService.insertMedicinePurchase(medicinePurchase));
     }

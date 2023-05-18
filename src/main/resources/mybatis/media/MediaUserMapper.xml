@@ -120,8 +120,7 @@
 
     <update id="updateUser" parameterType="MediaUser">
         update media_user
-        <set>
-            <if test="userId != null and userId != ''">user_id = #{userId},</if>
+        <trim prefix="set" suffixOverrides=",">
             <if test="userName != null and userName != ''">user_name = #{userName},</if>
             <if test="deptId != null and deptId != 0">dept_id = #{deptId},</if>
             <if test="password != null and password != ''">password = #{password},</if>
@@ -129,13 +128,14 @@
             <if test="grade != null and grade != ''">grade = #{grade},</if>
             <if test="background != null and background != ''">background = #{background},</if>
             <if test="sex != null and sex != ''">sex = #{sex},</if>
-            <if test="age != null and age != ''">age = #{age},</if>
+            <if test="age != null and age != '0'">age = #{age},</if>
+            <if test="count != null and count != '0'">count = #{count},</if>
             <if test="scheduling != null and scheduling != ''">scheduling = #{scheduling},</if>
             <if test="status != null and status != ''">status = #{status},</if>
             <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
             <if test="remark != null and remark != ''">remark = #{remark},</if>
             update_time = sysdate()
-        </set>
+        </trim>
         where user_id = #{userId}
     </update>
 
@@ -180,23 +180,26 @@
         where user_id = #{userId}
     </delete>
 
+    <select id="queryMediaUserList" resultType="com.ghc.project.media.domain.MediaUserDTO">
+        select u.user_name as userName,
+        u.user_id as userId,
+        u.dept_id as deptId,
+        u.count,
+        d.dept_name as deptName
+        from media_user u
+        left join media_dept d
+        on u.dept_id = d.dept_id
+        <if test="deptId != null and deptId != '0'">
+        where u.dept_id = #{deptId}
+        </if>
+    </select>
+
+
     <delete id="deleteUserByIds" parameterType="Long">
         update media_user set del_flag = '2' where user_id in
         <foreach collection="array" item="userId" open="(" separator="," close=")">
-            #{userId}
+        #{userId}
         </foreach>
     </delete>
-
-
-    <resultMap id="MediaUserListResult" type="MediaUserList">
-        <id property="userId" column="user_id"/>
-        <result property="userName" column="user_name"/>
-        <result property="deptId" column="dept_id"/>
-    </resultMap>
-
-    <select id="queryMediaUserList" resultMap="MediaUserListResult">
-        select user_name, user_id, dept_id
-        from media_user
-    </select>
 
 </mapper>

@@ -11,7 +11,7 @@
         <result property="sex" column="sex"/>
         <result property="birthday" column="birthday"/>
         <result property="age" column="age"/>
-        <result property="delFlag" column="delflag"/>
+        <result property="delFlag" column="del_flag"/>
         <result property="createBy" column="create_by"/>
         <result property="createTime" column="create_time"/>
         <result property="updateBy" column="update_by"/>
@@ -25,21 +25,21 @@
         where patient_card = #{patientCard}
     </select>
 
-    <insert id="addPatientInfo">
+    <insert id="addPatientInfo" keyProperty="patientId" keyColumn="id" useGeneratedKeys="true">
         insert into patient_info(
         <if test="patientName != null and patientName !='' ">patient_name,</if>
         <if test="patientCard != null and patientCard !='' ">patient_card,</if>
         <if test="sex != null and sex !='' ">sex,</if>
-        <if test="birthday != null and birthday != 0 ">birthday,</if>
-        <if test="age != null and age != 0 ">age,</if>
-        <if test="addr != null and addr !=''">addr</if>
-        <if test="createTime != null and createTime !=''">createTime</if>
+        <if test="birthday != null and birthday !='' ">birthday,</if>
+        <if test="age != null and age != '0' ">age,</if>
+        <if test="addr != null and addr !=''">addr,</if>
+        create_time
         )values (
         <if test="patientName != null and patientName !=''">#{patientName},</if>
         <if test="patientCard != null and patientCard !=''">#{patientCard},</if>
         <if test="sex != null and sex !=''">#{sex},</if>
         <if test="birthday != null and birthday !=''">#{birthday},</if>
-        <if test="age != null and age !=''">#{age},</if>
+        <if test="age != null and age != '0'">#{age},</if>
         <if test="addr != null and addr !=''">#{addr},</if>
         sysdate()
         )
@@ -59,4 +59,19 @@
             and patient_card = #{patientCard}
         </if>
     </select>
+
+    <update id="updatePatientInfo">
+        update patient_info
+        <trim prefix="set" suffixOverrides="," >
+            <if test="patientName != null and patientName != ''">patient_name = #{patientName},</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="patientCard != null and patientCard != ''">patient_card = #{patientCard},</if>
+            <if test="sex != null and sex != ''">sex = #{sex},</if>
+            <if test="birthday != null and birthday != ''">birthday = #{birthday},</if>
+            <if test="age != null and age != ''">age = #{age},</if>
+            <if test="addr != null and addr != ''">addr = #{addr},</if>
+            update_time = sysdate()
+        </trim>
+        where patient_id = #{patientId}
+    </update>
 </mapper>

@@ -3,8 +3,8 @@ package com.ghc.project.seedoctor.controlller;
 import com.ghc.framework.web.controller.BaseController;
 import com.ghc.framework.web.domain.AjaxResult;
 import com.ghc.framework.web.page.TableDataInfo;
-import com.ghc.project.seedoctor.domain.PatientInfo;
 import com.ghc.project.seedoctor.domain.Register;
+import com.ghc.project.seedoctor.domain.dto.RegisterDTO;
 import com.ghc.project.seedoctor.service.RegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,7 +32,6 @@ public class RegisterController extends BaseController {
      * @param register
      * @return
      */
-//    @PreAuthorize("@ss.hasPermi('seedoctor:register:getRegister')")
     @GetMapping("/list")
     @ApiOperation("获取挂号列表信息")
     public TableDataInfo getPatientInfoList(Register register) {
@@ -46,5 +45,11 @@ public class RegisterController extends BaseController {
     public AjaxResult getRegisterPrice(@RequestBody String registerName) {
 
         return registerService.getRegisterPrice(registerName);
+    }
+
+    @PostMapping
+    @ApiOperation("新增挂号信息")
+    public AjaxResult saveRegister(@RequestBody RegisterDTO register) {
+        return AjaxResult.success(registerService.saveRegister(register));
     }
 }

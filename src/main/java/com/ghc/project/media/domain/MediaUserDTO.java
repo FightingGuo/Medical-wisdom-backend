@@ -8,11 +8,15 @@ import lombok.Data;
  * @Description
  */
 @Data
-public class MediaUserList {
+public class MediaUserDTO {
 
     private Long userId;
 
     private Long deptId;
 
+    private Long count;
+
     private String userName;
+
+    private String deptName;
 }

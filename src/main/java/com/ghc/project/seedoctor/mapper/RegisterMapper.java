@@ -14,4 +14,6 @@ public interface RegisterMapper {
     List<Register> getRegister(Register register);
 
     RegisterPrice getRegisterPrice(String registerName);
+
+    Long addRegister(Register register);
 }
