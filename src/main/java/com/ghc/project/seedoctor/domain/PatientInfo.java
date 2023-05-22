@@ -1,6 +1,5 @@
 package com.ghc.project.seedoctor.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ghc.framework.web.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 /**
  * @Date 2023/3/26 /15:01

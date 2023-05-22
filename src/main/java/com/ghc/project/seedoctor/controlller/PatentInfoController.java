@@ -8,11 +8,9 @@ import com.ghc.project.seedoctor.service.PatientInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -34,7 +32,6 @@ public class PatentInfoController extends BaseController {
      * @param patientInfo
      * @return
      */
-//    @PreAuthorize("@ss.hasPermi('seedoctor:patient:getPatientInfo')")
     @GetMapping("/list")
     @ApiOperation("获取患者信息")
     public TableDataInfo getPatientInfoList(PatientInfo patientInfo) {

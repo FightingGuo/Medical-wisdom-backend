@@ -1,14 +1,11 @@
 package com.ghc.project.seedoctor.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ghc.framework.web.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.sql.Timestamp;
 
 /**
  * @Date 2023/3/28 /15:47

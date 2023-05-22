@@ -28,6 +28,7 @@
     <insert id="addPatientInfo" keyProperty="patientId" keyColumn="id" useGeneratedKeys="true">
         insert into patient_info(
         <if test="patientName != null and patientName !='' ">patient_name,</if>
+        <if test="phone != null and phone !='' ">phone,</if>
         <if test="patientCard != null and patientCard !='' ">patient_card,</if>
         <if test="sex != null and sex !='' ">sex,</if>
         <if test="birthday != null and birthday !='' ">birthday,</if>
@@ -36,6 +37,7 @@
         create_time
         )values (
         <if test="patientName != null and patientName !=''">#{patientName},</if>
+        <if test="phone != null and phone !='' ">#{phone},</if>
         <if test="patientCard != null and patientCard !=''">#{patientCard},</if>
         <if test="sex != null and sex !=''">#{sex},</if>
         <if test="birthday != null and birthday !=''">#{birthday},</if>

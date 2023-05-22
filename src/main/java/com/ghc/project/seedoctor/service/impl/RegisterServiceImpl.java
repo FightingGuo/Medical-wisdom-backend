@@ -3,7 +3,6 @@ package com.ghc.project.seedoctor.service.impl;
 import com.ghc.common.utils.DateUtils;
 import com.ghc.framework.web.domain.AjaxResult;
 import com.ghc.project.media.domain.MediaUser;
-import com.ghc.project.media.domain.MediaUserDTO;
 import com.ghc.project.media.mapper.MediaUserMapper;
 import com.ghc.project.seedoctor.constant.SeeDoctorConstant;
 import com.ghc.project.seedoctor.domain.PatientInfo;
@@ -13,17 +12,12 @@ import com.ghc.project.seedoctor.domain.dto.RegisterDTO;
 import com.ghc.project.seedoctor.mapper.PatientInfoMapper;
 import com.ghc.project.seedoctor.mapper.RegisterMapper;
 import com.ghc.project.seedoctor.service.RegisterService;
-import jdk.nashorn.internal.ir.RuntimeNode;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.GregorianCalendar;
 import java.util.List;
 
